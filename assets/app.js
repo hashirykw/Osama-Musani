@@ -1209,7 +1209,7 @@ RA.boot = function () {
   if (want3d) L.then(() => {
     const go = () => { if (window.THREE) return bg3d(); const sc = document.createElement('script'); sc.src = window.RA_THREE || 'assets/vendor/three.min.js'; sc.async = true; sc.onload = bg3d; document.head.appendChild(sc); };
     const idle = window.requestIdleCallback || (f => setTimeout(f, 200));
-    if (document.readyState === 'complete') idle(go, { timeout: 1200 }); else addEventListener('load', () => idle(go, { timeout: 1200 }), { once: true });
+    requestAnimationFrame(() => idle(go, { timeout: 300 }));
   }); else document.documentElement.classList.add('no3d');
   Q.forEach(fn => { try { fn(); } catch (e) { console.error(e); } });
   autoTilt(); RA.tilt(); RA.rails(); finish(); motion(); L.then(() => RA.reveal());
@@ -1456,11 +1456,11 @@ BG.init = function () {
   THREE = window.THREE;
   if (!canvas || !THREE) { document.documentElement.classList.add('no3d'); return; }
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'low-power' });
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'high-performance' });
   } catch (e) { document.documentElement.classList.add('no3d'); return; }
   const mob = MOB();
-  N = mob ? 3200 : (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4 ? 5000 : 8000);
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, mob ? 1.25 : 1.35));
+  N = mob ? 6500 : (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4 ? 9000 : 15000);
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, mob ? 1.5 : 1.6));
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 100); camera.position.z = 10;
   group = new THREE.Group(); scene.add(group);
