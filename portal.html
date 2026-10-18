@@ -1,0 +1,279 @@
+<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Student portal · Sir Osama Musani Business</title><meta name="description" content="The student portal for Sir Osama Musani’s Business classes: lectures, announcements and marks."><meta name="robots" content="noindex"><meta name="theme-color" content="#0b0a09"><meta property="og:type" content="website"><meta property="og:site_name" content="Sir Osama Musani · Business"><meta property="og:title" content="Student portal · Sir Osama Musani Business"><meta property="og:description" content="The student portal for Sir Osama Musani’s Business classes: lectures, announcements and marks."><meta property="og:url" content="https://osama-musani.nexlyr.solutions/portal.html"><meta property="og:image" content="https://osama-musani.nexlyr.solutions/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><script>(function(){var d=document.documentElement;d.dataset.theme="dark";try{if(!sessionStorage.getItem("om-seen"))d.classList.add("ld-on");}catch(e){}})();</script><link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2?v=912c3c9f" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/dm-sans-latin-400-normal.woff2?v=a220a328" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="assets/site.css?v=ba94c937"><style>@layer base{.po-g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,72px);align-items:center}
+.po-feats{display:grid;gap:10px;margin-top:30px;max-width:560px}
+.po-feats li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:14px 16px;border-radius:10px;border:1px solid var(--line-w);background:color-mix(in srgb,var(--panel) 75%,transparent)}
+.po-feats li::before{content:"";grid-row:span 2;width:10px;height:10px;margin-top:6px;border:1px solid var(--brass);transform:rotate(45deg)}
+.po-feats b{font-weight:600;font-size:15px}
+.po-feats span{font-size:13.5px;color:var(--ink-3)}
+.po-auth{padding:clamp(24px,3vw,40px);display:grid;gap:16px}
+.po-auth .seal{width:52px;height:52px}
+.po-auth .seal b{font-size:23px}
+.po-form{display:grid;gap:14px}
+.pw{position:relative}
+.pw input{padding-right:48px}
+.eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:36px;height:36px;display:grid;place-items:center;color:var(--ink-3);border-radius:8px}
+.eye:hover{color:var(--brass)}
+.eye svg{width:18px;height:18px}
+.err{min-height:1.2em;font:500 12.5px/1.4 var(--f-mono);color:var(--bad)}
+.po-auth-f{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px}
+.po-dev{text-align:center}
+.po-dash{position:relative;padding:calc(var(--nav-h) + 40px) 0 20px}
+.po-preview{margin-bottom:14px}
+.po-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px}
+.po-who{display:flex;align-items:center;gap:14px}
+.po-who .seal{width:50px;height:50px}
+.po-who .h3{margin-top:6px}
+.po-stats{display:flex;gap:0;border:1px solid var(--rule-2);border-radius:10px;overflow:hidden}
+.po-stats>div{display:grid;justify-items:center;padding:8px 16px}
+.po-stats>div+div{border-left:1px solid var(--rule)}
+.po-stats b{font-size:1.3rem;font-weight:500}
+.po-stats span{font-size:11px;color:var(--ink-3)}
+.po-tabs{margin:16px 0}
+.po-tabs i{font:normal 600 11px/1 var(--f-mono);margin-left:6px;color:var(--red)}
+.po-tabs button[aria-pressed="true"] i{color:#7a1f15}
+.po-pane{min-height:240px}
+.lec-sec{margin-bottom:16px;border-radius:12px;border:1px solid var(--line-w);background:var(--glass);box-shadow:var(--hi);overflow:hidden;animation:tIn .5s var(--e-out) both}
+.lec-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:2px solid var(--ink-3)}
+.lec-h b{font:500 1.2rem/1.1 var(--f-display)}
+.lec-h span{font:500 11.5px/1 var(--f-mono);color:var(--ink-3)}
+.lec{display:grid;grid-template-columns:auto 52px 1fr auto auto;gap:12px;align-items:center;padding:12px 18px;border-bottom:1px dashed var(--rule)}
+.lec:last-child{border-bottom:0}
+.lec .tk{width:24px;height:24px;border-radius:8px;border:1.5px solid var(--rule-3);display:grid;place-items:center;color:transparent;transition:all .25s}
+.lec .tk.on{background:var(--green);border-color:var(--green);color:#03140c}
+.lec .tk svg{width:14px;height:14px}
+.lec .tp{font:500 12px/1 var(--f-mono);color:var(--brass)}
+.lec .tt b{display:block;font-weight:600;font-size:14.5px}
+.lec .tt small{font-size:12px;color:var(--ink-3)}
+.lec.done .tt b{color:var(--ink-3)}
+.ann{padding:18px 20px;border-radius:12px;border:1px solid var(--line-w);background:var(--glass);box-shadow:var(--hi);margin-bottom:12px;animation:tIn .5s var(--e-out) both}
+.ann.pin{border-color:color-mix(in srgb,var(--brass) 45%,transparent)}
+.ann-h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.ann-h b{font:500 1.25rem/1.15 var(--f-display)}
+.ann-h span{font:500 11.5px/1 var(--f-mono);color:var(--ink-3);white-space:nowrap}
+.ann p{margin-top:8px;font-size:14.5px;color:var(--ink-2);white-space:pre-line}
+.mk-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.player{display:grid;gap:14px}
+.player .frame{aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+.player iframe,.player video{width:100%;height:100%;border:0;display:block}
+.modal-box.wide{width:min(980px,100%)}
+.desk-lv{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:18px}
+.desk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.dk{padding:20px;border-radius:14px;border:1px solid var(--line-w);background:var(--glass);box-shadow:var(--hi);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);display:grid;gap:12px;align-content:start;animation:tIn .6s var(--e-out) both}
+.dk.w2{grid-column:span 2}
+.dk-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:2px solid var(--ink-3)}
+.dk-h b{font:500 1.25rem/1.1 var(--f-display)}
+.dk-h a{font-size:13px;color:var(--brass)}
+.dk ul li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--rule);font-size:13.5px}
+.dk ul li span:last-child{font-family:var(--f-mono);color:var(--ink-3);white-space:nowrap}
+.dk .rings{display:flex;gap:18px;justify-content:space-around}
+.dk .rings>div{display:grid;justify-items:center;gap:6px;font-size:12.5px;color:var(--ink-3)}
+.dk .ring-prog{width:96px;height:96px}
+.dk .ring-prog b{font-size:1.1rem}
+@media (max-width:1000px){.po-g,.mk-g{grid-template-columns:1fr}.desk{grid-template-columns:1fr 1fr}.dk.w2{grid-column:1/-1}}
+@media (max-width:640px){.desk{grid-template-columns:1fr}.lec{grid-template-columns:auto 1fr auto;gap:10px}.lec .tp{display:none}.lec .ln{grid-column:2/-1}.po-stats{width:100%}.po-stats>div{flex:1}}}
+</style></head><body data-page="portal"><a class="skip" href="#main">Skip to content</a><div class="bg-base" aria-hidden="true"></div><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><canvas id="bg3d" aria-hidden="true"></canvas><div class="bg-veil" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div><div class="ldx" aria-hidden="true"><div class="ldx-fill"><div class="ldx-grp"><div class="ldx-w">OSAMA<div class="ldx-gold"><img src="assets/img/osama-musani.webp?v=b2573896" alt="" decoding="async"><i class="ldx-shine"></i></div><i class="ldx-crest"></i></div><div class="ldx-s">O, IGCSE &amp; A Level Business &middot; Karachi</div></div></div><div class="ldx-ink"><div class="ldx-grp"><div class="ldx-w"><span class="ldx-i"><i>O</i></span><span><i>S</i></span><span><i>A</i></span><span><i>M</i></span><span><i>A</i></span></div><div class="ldx-s"><span>O, IGCSE &amp; A Level Business &middot; Karachi</span></div></div></div><div class="ldx-m ldx-tl"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122"><span>Sir Osama Musani</span></div><div class="ldx-m ldx-tr">EconoBuz &middot; Case file 001</div><div class="ldx-m ldx-bl"><b id="ldN">000</b><span>Opening the case file</span></div><div class="ldx-m ldx-br">O Level 7115 / 7081 &middot; IGCSE 0450 / 0264<br>AS &amp; A Level 9609</div></div><div class="pt" aria-hidden="true"><div class="pt-bg"></div><div class="pt-in"><span class="pt-f"></span><div class="pt-w"></div></div><i class="pt-line"></i></div><i class="sprog" aria-hidden="true"></i><header class="nav"><a class="brand" href="index.html" aria-label="Sir Osama Musani, home"><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><span class="brand-t"><b>Osama Musani</b><span>Business · O &amp; A Level</span></span></a><nav class="nav-links" aria-label="Main"><a href="courses.html">Courses</a><a href="syllabus.html">Syllabus</a><a href="cases.html">Case files</a><a href="past-papers.html">Past papers</a><a href="lab.html">Lab</a><a href="portal.html" aria-current="page">Portal</a><a href="about.html">About</a></nav><div class="nav-r"><button class="nav-search" type="button" data-cmdk aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>⌘K</kbd></button><a class="btn btn-pri btn-sm btn-enrol" href="contact.html#enrol">Enrol</a><button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button></div></header><div class="menu" id="menu" aria-hidden="true"><nav aria-label="Mobile"><a href="index.html"><small>01</small>Home<i>f.01</i></a><a href="courses.html"><small>02</small>Courses<i>f.02</i></a><a href="syllabus.html"><small>03</small>Syllabus<i>f.03</i></a><a href="cases.html"><small>04</small>Case files<i>f.04</i></a><a href="past-papers.html"><small>05</small>Past papers<i>f.05</i></a><a href="lab.html"><small>06</small>Lab<i>f.06</i></a><a href="portal.html" aria-current="page"><small>07</small>Portal<i>f.07</i></a><a href="about.html"><small>08</small>About<i>f.08</i></a><a href="contact.html"><small>09</small>Contact<i>f.09</i></a></nav><div class="menu-foot"><a class="btn btn-pri" data-wa="Assalam o Alaikum Sir, I would like to enrol in Business with Sir Osama Musani." href="contact.html#enrol" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-sm mf-portal" href="portal.html">Student portal</a><button class="btn btn-sm" type="button" data-sound-toggle>Sound</button></div></div><main id="main"><section class="phero po-hero" data-shape="sphere" data-shape-x=".5" data-shape-y=".0" data-shape-s=".75" data-shape-a=".55" data-shape-spin=".08" data-shape-my="-.5" data-shape-ms=".4" data-shape-ma=".22">
+  <div class="wrap po-g">
+    <div class="po-copy">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><i></i><span>Student portal</span></nav>
+      <h1 class="display" data-split>Your course, <em>in one place.</em></h1>
+      <p class="lede" data-rv>Enrolled students sign in with the ID and access code from Sir Osama: lectures, revision sessions, announcements and test marks, all for your level. Below it, your study desk gathers everything you have done on this site.</p>
+      <ul class="po-feats" data-rv>
+        <li><b>Lectures by topic</b><span>Filed under their syllabus number, with notes beside the video.</span></li>
+        <li><b>Your marks over time</b><span>Every class test and mock, charted.</span></li>
+        <li><b>Progress that stays</b><span>Mark a lecture done and it stays done on your devices.</span></li>
+      </ul>
+    </div>
+    <div class="po-auth card" id="auth" data-rv="scale">
+      <span class="edge" aria-hidden="true"></span>
+      <span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span>
+      <h2 class="title-sm">Sign in</h2>
+      <div class="notice" id="authNote" hidden></div>
+      <form id="loginF" class="po-form" autocomplete="on" novalidate>
+        <div class="field"><label for="sid">Student ID</label><input id="sid" name="username" autocomplete="username" placeholder="OM-0000" autocapitalize="characters" spellcheck="false"></div>
+        <div class="field"><label for="scode">Access code</label><div class="pw"><input id="scode" name="password" type="password" autocomplete="current-password" placeholder="XXXX-XXXX" autocapitalize="characters" spellcheck="false"><button type="button" class="eye" aria-label="Show code" id="eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+        <p class="err" id="loginErr" role="alert"></p>
+        <button class="btn btn-pri btn-block" type="submit" id="loginB">Sign in</button>
+        <button class="btn btn-block" type="button" id="demoB" hidden>Try the portal with a sample student</button>
+      </form>
+      <div class="po-auth-f"><a class="link" data-wa="Assalam o Alaikum Sir, I am enrolled in your Business classes and need my portal ID / access code." href="contact.html" target="_blank" rel="noopener">Lost your code?</a><a class="link" href="contact.html#enrol">Not enrolled? Register</a></div>
+      <p class="small muted po-dev">One ID works on up to <b class="num" data-max-dev>2</b> devices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- signed-in dashboard -->
+<section class="po-dash" id="dash" hidden data-shape="wave" data-shape-a=".3">
+  <div class="wrap">
+    <div class="po-preview notice" id="prevBanner" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><p><b>Demo portal.</b> This is sample data stored only in this browser, to show how the portal works. Nothing here is a real student, lecture or mark.</p></div>
+    <header class="po-top card">
+      <div class="po-who"><span class="seal" aria-hidden="true"><b id="whoI">S</b></span><div><span class="folio" id="whoL">Level</span><h2 class="h3" id="whoN">Welcome</h2></div></div>
+      <div class="po-stats"><div><b class="num" id="stDone">0</b><span>lectures done</span></div><div><b class="num" id="stLeft">0</b><span>to watch</span></div><div><b class="num" id="stAvg">&mdash;</b><span>test average</span></div></div>
+      <button class="btn btn-sm" type="button" id="outB">Sign out</button>
+    </header>
+    <div class="po-tabs seg" id="poTabs" role="tablist"><button type="button" data-v="lec" aria-pressed="true">Lectures</button><button type="button" data-v="ws" aria-pressed="false">Revision</button><button type="button" data-v="ann" aria-pressed="false">Announcements <i id="annN"></i></button><button type="button" data-v="mk" aria-pressed="false">Marks</button></div>
+    <div class="po-pane" id="pane"></div>
+  </div>
+</section>
+
+<!-- study desk (on this device) -->
+<section class="sec po-desk" id="desk" data-shape="coin" data-shape-x=".55" data-shape-a=".4" data-shape-spin=".05" data-shape-my=".5" data-shape-ms=".38">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="meta"><span class="folio">Study desk &middot; on this device</span><span class="hair"></span></div>
+      <h2 class="title" data-split>Everything you have done, <em>in one place.</em></h2>
+      <p class="lede" data-rv>Your syllabus ticks, past-paper scores, drill results and flashcards, read straight from this browser. Nothing is sent anywhere.</p>
+    </div>
+    <div class="desk-lv" data-rv><span class="lbl">I&rsquo;m studying</span><div class="seg" id="lvSeg"><button type="button" data-v="7081">O Level</button><button type="button" data-v="0264">IGCSE</button><button type="button" data-v="9609-AS">AS 9609</button><button type="button" data-v="9609-A2">A2 9609</button></div></div>
+    <div class="desk" id="deskG"></div>
+  </div>
+</section>
+</main><footer class="foot"><div class="wrap"><div class="foot-top"><div><img class="foot-logo" src="assets/img/om-logo.svg?v=1a003650" alt="Sir Osama Musani, O, IGCSE &amp; A Level Business" width="448" height="448" loading="lazy" decoding="async"><p class="foot-word">Osama<span>Musani.</span></p><p class="small" style="margin-top:14px;max-width:36ch">Cambridge O Level, IGCSE and A Level Business, taught through campaigns happening right now. Karachi and online.</p></div><div><h4>Study</h4><ul><li><a href="courses.html">Courses</a></li><li><a href="syllabus.html">Syllabus tracker</a></li><li><a href="past-papers.html">Past papers</a></li><li><a href="cases.html">Case files</a></li><li><a href="lab.html">Business Lab</a></li><li><a href="portal.html">Student portal</a></li></ul></div><div><h4>Sir Osama</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html#where">Where he teaches</a></li><li><a href="contact.html#enrol">Enrol</a></li><li><a href="contact.html#faq">Questions</a></li></ul></div><div><h4>Follow</h4><ul><li><a data-wa="Assalam o Alaikum" href="contact.html">WhatsApp</a></li><li><a data-href="instagram" href="#">Instagram</a></li><li><a data-href="facebook" href="#">Facebook</a></li><li><a data-href="youtube" href="#">YouTube</a></li><li><a data-href="instagram2" href="#">@osama_musani</a></li><li><a data-href="linkedin" href="#">LinkedIn</a></li></ul></div></div><div class="nxb">
+      <a class="nxb__id" href="https://nexlyr.solutions/" target="_blank" rel="noopener"
+         aria-label="Nexlyr Solutions — the studio that designed and built this site">
+        <span class="nxb__mk" aria-hidden="true"><svg viewBox="0 0 631 1011" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="Nexlyr Solutions logo"><defs><linearGradient id="nxbLogoG" gradientUnits="userSpaceOnUse" x1="277.4" y1="43.9" x2="724.3" y2="114.7"><stop offset="0" stop-color="#f4b701"/><stop offset="1" stop-color="#b38601"/></linearGradient></defs><g fill="url(#nxbLogoG)"><rect x="2.5" y="1" width="27.2" height="6.8"/><rect x="70.5" y="1" width="27.2" height="6.8"/><rect x="124.9" y="1" width="88.4" height="6.8"/><rect x="233.7" y="1" width="27.2" height="6.8"/><rect x="294.9" y="1" width="27.2" height="6.8"/><rect x="342.5" y="1" width="27.2" height="6.8"/><rect x="430.9" y="1" width="27.2" height="6.8"/><rect x="492.1" y="1" width="27.2" height="6.8"/><rect x="539.7" y="1" width="74.8" height="6.8"/><rect x="2.5" y="7.8" width="34" height="6.8"/><rect x="70.5" y="7.8" width="27.2" height="6.8"/><rect x="124.9" y="7.8" width="88.4" height="6.8"/><rect x="233.7" y="7.8" width="27.2" height="6.8"/><rect x="294.9" y="7.8" width="27.2" height="6.8"/><rect x="342.5" y="7.8" width="27.2" height="6.8"/><rect x="430.9" y="7.8" width="27.2" height="6.8"/><rect x="492.1" y="7.8" width="27.2" height="6.8"/><rect x="539.7" y="7.8" width="81.6" height="6.8"/><rect x="2.5" y="14.6" width="34" height="6.8"/><rect x="70.5" y="14.6" width="27.2" height="6.8"/><rect x="124.9" y="14.6" width="27.2" height="6.8"/><rect x="233.7" y="14.6" width="34" height="6.8"/><rect x="288.1" y="14.6" width="34" height="6.8"/><rect x="342.5" y="14.6" width="27.2" height="6.8"/><rect x="430.9" y="14.6" width="27.2" height="6.8"/><rect x="492.1" y="14.6" width="27.2" height="6.8"/><rect x="539.7" y="14.6" width="27.2" height="6.8"/><rect x="600.9" y="14.6" width="27.2" height="6.8"/><rect x="2.5" y="21.4" width="40.8" height="6.8"/><rect x="70.5" y="21.4" width="27.2" height="6.8"/><rect x="124.9" y="21.4" width="27.2" height="6.8"/><rect x="240.5" y="21.4" width="34" height="6.8"/><rect x="281.3" y="21.4" width="34" height="6.8"/><rect x="342.5" y="21.4" width="27.2" height="6.8"/><rect x="430.9" y="21.4" width="27.2" height="6.8"/><rect x="492.1" y="21.4" width="27.2" height="6.8"/><rect x="539.7" y="21.4" width="27.2" height="6.8"/><rect x="600.9" y="21.4" width="27.2" height="6.8"/><rect x="2.5" y="28.2" width="47.6" height="6.8"/><rect x="70.5" y="28.2" width="27.2" height="6.8"/><rect x="124.9" y="28.2" width="27.2" height="6.8"/><rect x="247.3" y="28.2" width="61.2" height="6.8"/><rect x="342.5" y="28.2" width="27.2" height="6.8"/><rect x="437.7" y="28.2" width="27.2" height="6.8"/><rect x="485.3" y="28.2" width="27.2" height="6.8"/><rect x="539.7" y="28.2" width="27.2" height="6.8"/><rect x="600.9" y="28.2" width="27.2" height="6.8"/><rect x="2.5" y="35" width="54.4" height="6.8"/><rect x="70.5" y="35" width="27.2" height="6.8"/><rect x="124.9" y="35" width="27.2" height="6.8"/><rect x="254.1" y="35" width="47.6" height="6.8"/><rect x="342.5" y="35" width="27.2" height="6.8"/><rect x="444.5" y="35" width="27.2" height="6.8"/><rect x="478.5" y="35" width="27.2" height="6.8"/><rect x="539.7" y="35" width="27.2" height="6.8"/><rect x="600.9" y="35" width="27.2" height="6.8"/><rect x="2.5" y="41.8" width="27.2" height="6.8"/><rect x="36.5" y="41.8" width="27.2" height="6.8"/><rect x="70.5" y="41.8" width="27.2" height="6.8"/><rect x="124.9" y="41.8" width="81.6" height="6.8"/><rect x="260.9" y="41.8" width="34" height="6.8"/><rect x="342.5" y="41.8" width="27.2" height="6.8"/><rect x="451.3" y="41.8" width="47.6" height="6.8"/><rect x="539.7" y="41.8" width="27.2" height="6.8"/><rect x="600.9" y="41.8" width="27.2" height="6.8"/><rect x="2.5" y="48.6" width="27.2" height="6.8"/><rect x="36.5" y="48.6" width="27.2" height="6.8"/><rect x="70.5" y="48.6" width="27.2" height="6.8"/><rect x="124.9" y="48.6" width="81.6" height="6.8"/><rect x="260.9" y="48.6" width="34" height="6.8"/><rect x="342.5" y="48.6" width="27.2" height="6.8"/><rect x="458.1" y="48.6" width="34" height="6.8"/><rect x="539.7" y="48.6" width="27.2" height="6.8"/><rect x="600.9" y="48.6" width="27.2" height="6.8"/><rect x="2.5" y="55.4" width="27.2" height="6.8"/><rect x="43.3" y="55.4" width="54.4" height="6.8"/><rect x="124.9" y="55.4" width="27.2" height="6.8"/><rect x="254.1" y="55.4" width="47.6" height="6.8"/><rect x="342.5" y="55.4" width="27.2" height="6.8"/><rect x="464.9" y="55.4" width="27.2" height="6.8"/><rect x="539.7" y="55.4" width="81.6" height="6.8"/><rect x="2.5" y="62.2" width="27.2" height="6.8"/><rect x="43.3" y="62.2" width="54.4" height="6.8"/><rect x="124.9" y="62.2" width="27.2" height="6.8"/><rect x="247.3" y="62.2" width="61.2" height="6.8"/><rect x="342.5" y="62.2" width="27.2" height="6.8"/><rect x="464.9" y="62.2" width="27.2" height="6.8"/><rect x="539.7" y="62.2" width="74.8" height="6.8"/><rect x="2.5" y="69" width="27.2" height="6.8"/><rect x="50.1" y="69" width="47.6" height="6.8"/><rect x="124.9" y="69" width="27.2" height="6.8"/><rect x="240.5" y="69" width="34" height="6.8"/><rect x="281.3" y="69" width="34" height="6.8"/><rect x="342.5" y="69" width="27.2" height="6.8"/><rect x="464.9" y="69" width="27.2" height="6.8"/><rect x="539.7" y="69" width="27.2" height="6.8"/><rect x="580.5" y="69" width="34" height="6.8"/><rect x="2.5" y="75.8" width="27.2" height="6.8"/><rect x="56.9" y="75.8" width="40.8" height="6.8"/><rect x="124.9" y="75.8" width="27.2" height="6.8"/><rect x="233.7" y="75.8" width="34" height="6.8"/><rect x="288.1" y="75.8" width="34" height="6.8"/><rect x="342.5" y="75.8" width="27.2" height="6.8"/><rect x="464.9" y="75.8" width="27.2" height="6.8"/><rect x="539.7" y="75.8" width="27.2" height="6.8"/><rect x="587.3" y="75.8" width="34" height="6.8"/><rect x="2.5" y="82.6" width="27.2" height="6.8"/><rect x="63.7" y="82.6" width="34" height="6.8"/><rect x="124.9" y="82.6" width="88.4" height="6.8"/><rect x="233.7" y="82.6" width="27.2" height="6.8"/><rect x="294.9" y="82.6" width="27.2" height="6.8"/><rect x="342.5" y="82.6" width="88.4" height="6.8"/><rect x="464.9" y="82.6" width="27.2" height="6.8"/><rect x="539.7" y="82.6" width="27.2" height="6.8"/><rect x="594.1" y="82.6" width="34" height="6.8"/><rect x="2.5" y="89.4" width="27.2" height="6.8"/><rect x="70.5" y="89.4" width="27.2" height="6.8"/><rect x="124.9" y="89.4" width="88.4" height="6.8"/><rect x="233.7" y="89.4" width="27.2" height="6.8"/><rect x="294.9" y="89.4" width="27.2" height="6.8"/><rect x="342.5" y="89.4" width="88.4" height="6.8"/><rect x="464.9" y="89.4" width="27.2" height="6.8"/><rect x="539.7" y="89.4" width="27.2" height="6.8"/><rect x="600.9" y="89.4" width="27.2" height="6.8"/><rect x="0" y="128" width="98.5" height="883"/><rect x="133.25" y="128" width="98.5" height="883"/><rect x="266.5" y="128" width="98.5" height="883"/><rect x="399.75" y="128" width="98.5" height="630"/><rect x="533" y="128" width="98.5" height="630"/></g></svg></span>
+        <span class="nxb__tx"><span class="nxb__kk">Designed &amp; built by</span><span class="nxb__nm">Nexlyr Solutions</span></span>
+      </a>
+      <a class="nxb__go" target="_blank" rel="noopener"
+         href="https://wa.me/923053687680?text=Hi%20Nexlyr%21%20I%20saw%20Sir%20Osama%20Musani%27s%20website%20and%20I%27d%20like%20a%20site%20like%20it."
+         aria-label="Connect with Nexlyr Solutions on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.14 6.44 2.14 11.9c0 1.75.46 3.45 1.32 4.95L2.05 22l5.28-1.38a9.86 9.86 0 0 0 4.71 1.2c5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.95-4.37-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36l.55.01c.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.15.12.32.02.51-.09.2-.14.32-.28.49l-.42.49c-.14.14-.28.29-.12.57.16.29.72 1.18 1.54 1.91 1.06.94 1.95 1.23 2.23 1.37.28.15.44.12.6-.07.17-.2.7-.81.88-1.09.19-.29.37-.24.63-.14.25.09 1.62.76 1.9.9.28.15.46.22.53.34.07.12.07.68-.17 1.34z"/></svg>
+        Connect
+      </a>
+    </div><div class="foot-mark" aria-hidden="true"><div class="fm-o">OSAMA MUSANI</div><div class="fm-f">OSAMA MUSANI</div></div><div class="foot-meta"><span>© <span data-year>2026</span> Sir Osama Musani · EconoBuz · Karachi</span><span>Syllabus summaries from Cambridge International’s published syllabuses. Not affiliated with Cambridge.</span></div></div></footer><div class="dock" role="toolbar" aria-label="Display"><button type="button" data-sound-btn aria-label="Sound"></button><button type="button" data-top-btn aria-label="Back to top"><svg class="ring" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></div><button class="fab" type="button" aria-controls="bot" aria-expanded="false"><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><span class="t">Ask Buzz</span></button><nav class="mbar" aria-label="Quick actions"><button class="mb-ask" type="button" data-ask><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><span class="mb-t"><small>Ask</small><b>Buzz</b></span></button><a class="btn btn-pri mb-enrol" data-wa="Assalam o Alaikum Sir, I would like to enrol in Business classes with Sir Osama Musani." href="contact.html#enrol" target="_blank" rel="noopener">Enrol <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a><button class="mb-ic" type="button" data-cmdk aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></nav><div class="bot" id="bot" role="dialog" aria-label="Ask Buzz" aria-hidden="true"><div class="bot-h"><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><div><b>Buzz</b><small><i></i>Help desk · answers instantly</small></div><button class="xbtn" type="button" aria-label="Close">×</button></div><div class="bot-log" aria-live="polite"></div><div class="bot-chips"><button class="chip" type="button">Fees and timings</button><button class="chip" type="button" data-q="Where does he teach?">Where he teaches</button><button class="chip" type="button" data-q="Are classes online or on-site?">Online or on-site?</button><button class="chip" type="button" data-q="How long is 9609 paper 1?">9609 Paper 1 length</button><button class="chip" type="button" data-q="break-even formula">Break-even formula</button><button class="chip" type="button" data-q="What is opportunity cost">Opportunity cost?</button><button class="chip" type="button" data-q="Herzberg">Herzberg</button></div><form class="bot-f" autocomplete="off"><input type="text" placeholder="Ask about classes, a topic or a formula…" aria-label="Your question"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form></div><div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="scrim"></div><div class="cmdk-box"><div class="cmdk-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="cmdkIn" placeholder="Jump to a page, topic, tool or action…" autocomplete="off" aria-label="Search"><kbd>esc</kbd></div><div class="cmdk-list" id="cmdkList" role="listbox"></div><div class="cmdk-foot"><span>↑↓ move</span><span>↵ open</span><span>/ or ⌘K</span></div></div></div><div class="modal" id="modal" aria-hidden="true"><div class="scrim" data-close></div><div class="modal-box" role="dialog" aria-modal="true"><button class="xbtn" type="button" data-close aria-label="Close">×</button><div id="modalBody"></div></div></div><div class="cursor" aria-hidden="true"><i class="c-dot"></i><i class="c-ring"></i></div><script src="assets/vendor/gsap.min.js?v=47da594c"></script><script src="assets/vendor/ScrollTrigger.min.js?v=ba1fa78e"></script><script src="assets/vendor/lenis.min.js?v=79e3a064"></script><script>window.RA_THREE="assets/vendor/three.min.js?v=eb854986"</script><script src="config.js?v=3f49d761"></script><script src="assets/db.js?v=04439356"></script><script src="assets/app.js?v=b5633142"></script><script>RA.page(function () {
+const { $, $$, esc, store, Snd, toast, C } = RA, D = RA.DATA, DB = RA.DB, LV = RA.LEVELS;
+const ERR = { bad_credentials: 'That ID and access code don’t match.', locked: 'Too many attempts. Try again in 10 minutes.', inactive: 'This ID is switched off. Contact Sir Osama.', expired: 'This ID has expired. Contact Sir Osama to renew it.', device_limit: 'This ID is already signed in on ' + (C.MAX_DEVICES || 2) + ' devices. Ask the team to reset your devices.', session: 'Your session ended. Sign in again.' };
+const TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>';
+let sess = store.get('om-sess', null), data = null, tab = 'lec';
+$$('[data-max-dev]').forEach(e => e.textContent = C.MAX_DEVICES || 2);
+
+/* ---------- auth card state */
+(function () {
+  const note = $('#authNote');
+  if (!DB) { note.hidden = false; note.innerHTML = '<p><b>Sign-in is not switched on yet.</b> It opens as soon as Sir Osama issues student IDs. Your study desk below already works.</p>'; $$('#loginF input,#loginB').forEach(x => x.disabled = true); }
+  else if (DB.mode === 'preview') { note.hidden = false; note.innerHTML = '<p><b>Demo portal.</b> Sign in with the sample student (ID <b>OM-1001</b>, code <b>DEMO-2026</b>) or press the button below. Everything you see is sample data kept in this browser.</p>'; $('#demoB').hidden = false; }
+})();
+$('#eye').addEventListener('click', () => { const i = $('#scode'); i.type = i.type === 'password' ? 'text' : 'password'; });
+$('#demoB').addEventListener('click', () => { $('#sid').value = 'OM-1001'; $('#scode').value = 'DEMO-2026'; $('#loginF').requestSubmit(); });
+$('#loginF').addEventListener('submit', async e => {
+  e.preventDefault(); if (!DB) return;
+  const id = $('#sid').value.trim(), code = $('#scode').value.trim(), err = $('#loginErr');
+  $$('#loginF [aria-invalid]').forEach(x => x.removeAttribute('aria-invalid'));
+  if (!/^OM-?\d{3,6}$/i.test(id)) { $('#sid').setAttribute('aria-invalid', 'true'); err.textContent = 'Student IDs look like OM-1001.'; Snd.err(); return; }
+  if (code.replace(/[^a-z0-9]/gi, '').length < 6) { $('#scode').setAttribute('aria-invalid', 'true'); err.textContent = 'Enter the access code you were given.'; Snd.err(); return; }
+  const b = $('#loginB'); b.disabled = true; b.textContent = 'Signing in…'; err.textContent = '';
+  try {
+    const r = await DB.login(id.toUpperCase().replace(/^RA-?/, 'RA-'), code);
+    if (!r || !r.ok) { err.textContent = ERR[(r && r.error)] || 'Sign-in failed. Try again.'; Snd.err(); return; }
+    sess = { token: r.token, id: r.student_id, name: r.name, level: r.level, mode: DB.mode }; store.set('om-sess', sess);
+    Snd.chime(); await load(true);
+  } catch (x) { err.textContent = 'Could not reach the portal. Check your connection.'; Snd.err(); }
+  finally { b.disabled = false; b.textContent = 'Sign in'; }
+});
+
+/* ---------- dashboard */
+async function load(fresh) {
+  if (!sess || !DB || sess.mode !== DB.mode) { if (sess && DB && sess.mode !== DB.mode) { store.del('om-sess'); sess = null; } return; }
+  try { data = await DB.home(sess.token); } catch (e) { toast('Could not load your course.'); return; }
+  if (!data || !data.ok) { store.del('om-sess'); sess = null; $('#loginErr').textContent = ERR.session; return; }
+  $('.po-hero').hidden = true; $('#dash').hidden = false; $('#prevBanner').hidden = DB.mode !== 'preview';
+  $('#whoI').textContent = (data.name || 'S').trim()[0].toUpperCase(); $('#whoN').textContent = 'Assalam o Alaikum, ' + data.name.split(' ')[0]; $('#whoL').textContent = (LV[data.level] || data.level) + ' · ' + (data.student_id || sess.id);
+  if (!store.get('om-level', null)) { store.set('om-level', data.level); desk(); }
+  stats(); paint();
+  if (fresh) { RA.go(0, 0); RA.BG && RA.BG.pulse(); }
+  if (window.ScrollTrigger) setTimeout(() => ScrollTrigger.refresh(), 200);
+}
+function stats() {
+  const lec = data.lectures.filter(l => l.has_video), done = data.lectures.filter(l => data.done.includes(l.id)).length;
+  $('#stDone').textContent = done; $('#stLeft').textContent = Math.max(0, lec.length - lec.filter(l => data.done.includes(l.id)).length);
+  const m = data.marks || []; $('#stAvg').textContent = m.length ? Math.round(m.reduce((s, x) => s + x.score / x.out_of, 0) / m.length * 100) + '%' : '—';
+  $('#annN').textContent = (data.announcements || []).length || '';
+}
+function topicName(t) {
+  if (!t) return null; const code = data.level.slice(0, 4);
+  const sec = D.SYL[code].sections.find(s => s.topics.some(x => x.n === t)); const tp = sec && sec.topics.find(x => x.n === t);
+  return tp ? tp.t : null;
+}
+function lectures(kind) {
+  const L = data.lectures.filter(l => kind === 'ws' ? l.kind === 'workshop' : l.kind !== 'workshop');
+  if (!L.length) return '<div class="empty">' + (kind === 'ws' ? 'No revision sessions for your level yet. When Sir Osama adds them, they appear here.' : 'No lectures yet. They appear here as Sir Osama’s team uploads them.') + '</div>';
+  const code = data.level.slice(0, 4), groups = {};
+  L.forEach(l => { let g;
+    if (l.kind === 'solution') g = 'Past-paper solutions'; else if (l.kind === 'workshop') g = 'Revision sessions'; else if (l.topic) { const s = D.SYL[code].sections.find(s => s.topics.some(x => x.n === l.topic)); g = s ? 'Section ' + s.n + ' · ' + s.t : 'Topic ' + l.topic; } else g = 'General';
+    (groups[g] = groups[g] || []).push(l); });
+  return Object.entries(groups).map(([g, ls], i) => {
+    const dn = ls.filter(l => data.done.includes(l.id)).length;
+    return '<div class="lec-sec" style="animation-delay:' + i * 50 + 'ms"><div class="lec-h"><b>' + esc(g) + '</b><span>' + dn + ' / ' + ls.length + ' done</span></div>' + ls.map(l => {
+      const on = data.done.includes(l.id), tn = topicName(l.topic);
+      return '<div class="lec' + (on ? ' done' : '') + '" data-id="' + l.id + '"><button type="button" class="tk' + (on ? ' on' : '') + '" aria-label="' + (on ? 'Mark not done' : 'Mark done') + '" aria-pressed="' + on + '">' + TICK + '</button><span class="tp">' + esc(l.topic || '') + '</span><span class="tt"><b>' + esc(l.title) + '</b><small>' + [tn, l.minutes ? l.minutes + ' min' : '', l.has_notes ? 'notes' : '', l.free ? 'free' : ''].filter(Boolean).map(esc).join(' · ') + '</small></span>' +
+        (l.has_video || l.has_notes ? '<button class="btn btn-xs btn-pri ln" type="button" data-play="' + l.id + '">' + (l.has_video ? 'Watch' : 'Notes') + '</button>' : '<span class="tag ln">coming soon</span>') + '</div>';
+    }).join('') + '</div>';
+  }).join('');
+}
+function anns() {
+  const A = data.announcements || [];
+  return A.length ? A.map((a, i) => '<article class="ann' + (a.pinned ? ' pin' : '') + '" style="animation-delay:' + i * 50 + 'ms"><div class="ann-h"><b>' + (a.pinned ? '★ ' : '') + esc(a.title) + '</b><span>' + new Date(a.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) + '</span></div>' + (a.body ? '<p>' + esc(a.body) + '</p>' : '') + '</article>').join('') : '<div class="empty">No announcements for your level.</div>';
+}
+function marks() {
+  const M = data.marks || [];
+  if (!M.length) return '<div class="empty">No marks yet. Class tests and mocks Sir Osama records will appear here.</div>';
+  const P = M.map(m => m.score / m.out_of * 100), avg = P.reduce((a, b) => a + b, 0) / P.length;
+  const W = 520, H = 200, L = 34, B = 24, X = i => L + (P.length < 2 ? (W - L) / 2 : i * (W - L - 12) / (P.length - 1)), Y = v => 10 + (100 - v) / 100 * (H - B - 10);
+  const path = P.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1)).join(' ');
+  return '<div class="mk-g"><div class="out"><h4>Your marks <small>' + M.length + ' recorded</small></h4><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Date</th><th>Test</th><th class="n">Score</th><th class="n">%</th></tr></thead><tbody>' +
+    M.slice().reverse().map(m => '<tr><td class="num">' + esc(String(m.taken_on).slice(0, 10)) + '</td><td>' + esc(m.title) + (m.paper ? ' <span class="tag" style="height:20px;font-size:9.5px">' + esc(m.paper) + '</span>' : '') + (m.remarks ? '<span class="layers" style="display:block;font-size:12px;color:var(--ink-3)">' + esc(m.remarks) + '</span>' : '') + '</td><td class="n">' + RA.fmt(m.score) + ' / ' + RA.fmt(m.out_of) + '</td><td class="n">' + Math.round(m.score / m.out_of * 100) + '%</td></tr>').join('') + '</tbody></table></div></div>' +
+    '<div class="out"><h4>Trend <small>average ' + Math.round(avg) + '% · best ' + Math.round(Math.max.apply(null, P)) + '%</small></h4><svg class="chart" viewBox="0 0 ' + W + ' ' + H + '">' + [0, 50, 100].map(v => '<line class="gd" x1="' + L + '" x2="' + W + '" y1="' + Y(v) + '" y2="' + Y(v) + '"/><text x="0" y="' + (Y(v) + 3) + '">' + v + '%</text>').join('') +
+    '<line x1="' + L + '" x2="' + W + '" y1="' + Y(avg) + '" y2="' + Y(avg) + '" stroke="var(--green)" stroke-dasharray="4 4"/><path d="' + path + '" fill="none" stroke="var(--brass)" stroke-width="2.4"/>' + P.map((v, i) => '<circle cx="' + X(i) + '" cy="' + Y(v) + '" r="4" fill="var(--bg)" stroke="var(--brass)" stroke-width="2"/>').join('') + '</svg><p class="small">The green line is your average. Aim to keep every new mark above it.</p></div></div>';
+}
+function paint() {
+  $$('#poTabs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === tab)));
+  $('#pane').innerHTML = tab === 'lec' ? lectures('lec') : tab === 'ws' ? lectures('ws') : tab === 'ann' ? anns() : marks();
+}
+$('#poTabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; tab = b.dataset.v; paint(); Snd.soft(); });
+$('#pane').addEventListener('click', async e => {
+  const tk = e.target.closest('.tk');
+  if (tk) { const id = +tk.closest('.lec').dataset.id, on = !data.done.includes(id); data.done = on ? data.done.concat([id]) : data.done.filter(x => x !== id); paint(); stats(); on ? Snd.chime() : Snd.soft(); try { await DB.progress(sess.token, id, on); } catch (x) { toast('Could not save. Check your connection.'); } return; }
+  const p = e.target.closest('[data-play]');
+  if (p) {
+    const l = data.lectures.find(x => x.id === +p.dataset.play); p.disabled = true;
+    try {
+      const r = await DB.lecture(sess.token, l.id); if (!r || !r.ok) { toast(r && r.error === 'session' ? ERR.session : 'Could not open this lecture.'); return; }
+      const v = r.video || '', yt = v.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/);
+      const media = yt ? '<iframe src="https://www.youtube-nocookie.com/embed/' + yt[1] + '?rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="' + esc(l.title) + '"></iframe>' : (/\.(mp4|webm|m4v)(\?|$)/i.test(v) ? '<video src="' + esc(v) + '" controls playsinline controlslist="nodownload"></video>' : '');
+      RA.modal('<div class="player"><span class="folio">' + esc(l.topic ? l.topic + ' · ' : '') + esc(LV[data.level] || '') + '</span><h2 class="h3" style="margin-right:48px">' + esc(l.title) + '</h2>' + (media ? '<div class="frame">' + media + '</div>' : (v ? '<a class="btn" target="_blank" rel="noopener" href="' + esc(v) + '">Open the recording</a>' : '')) +
+        '<div style="display:flex;gap:8px;flex-wrap:wrap">' + (r.notes ? '<a class="btn btn-sm" target="_blank" rel="noopener" href="' + esc(r.notes) + '">Open the notes</a>' : '') + '<button class="btn btn-sm btn-pri" type="button" data-markdone="' + l.id + '">' + (data.done.includes(l.id) ? 'Done ✓' : 'Mark as done') + '</button></div></div>');
+      $('.modal-box').classList.add('wide');
+    } catch (x) { toast('Could not reach the portal.'); } finally { p.disabled = false; }
+  }
+});
+document.addEventListener('click', async e => {
+  const m = e.target.closest('[data-markdone]'); if (!m) return; const id = +m.dataset.markdone;
+  if (!data.done.includes(id)) { data.done.push(id); paint(); stats(); Snd.chime(); m.textContent = 'Done ✓'; try { await DB.progress(sess.token, id, true); } catch (x) { } }
+});
+$('#outB').addEventListener('click', async () => { try { await DB.logout(sess.token); } catch (e) { } store.del('om-sess'); sess = null; data = null; $('#dash').hidden = true; $('.po-hero').hidden = false; Snd.close(); toast('Signed out'); RA.go(0, 0); });
+
+/* ---------- study desk */
+function desk() {
+  const lv = store.get('om-level', null) || '7081';
+  $$('#lvSeg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === lv)));
+  const S = store.get('om-syl', {}), code = lv.slice(0, 4);
+  const inLv = t => t.code === code && (code !== '9609' || (lv === '9609-AS' ? t.lvl === 'AS' : t.lvl === 'A Level'));
+  const ring = c => { const all = D.INDEX.filter(t => t.code === c), d = all.filter(t => S[t.id] === 2).length, p = all.length ? d / all.length : 0; return '<div><div class="ring-prog"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="52"/><circle class="fgc" cx="60" cy="60" r="52" stroke-dasharray="326.7" style="stroke-dashoffset:' + (326.7 * (1 - p)).toFixed(1) + '"/></svg><b class="num">' + Math.round(p * 100) + '%</b></div><span>' + c + ' · ' + d + '/' + all.length + '</span></div>'; };
+  const rev = D.INDEX.filter(t => inLv(t) && S[t.id] === 1), todo = D.INDEX.filter(t => inLv(t) && !S[t.id]);
+  const nextT = rev.concat(todo).slice(0, 5);
+  const PP = store.get('om-pp', {}), pp = Object.entries(PP), sc = pp.filter(([, r]) => r.sc != null).map(([id, r]) => { const c = id.split('_')[0], p = id.split('_')[2][0]; return [id, r, r.sc / D.PMETA[c].papers[p].m * 100]; });
+  const avg = sc.length ? Math.round(sc.reduce((s, x) => s + x[2], 0) / sc.length) + '%' : '—';
+  const post = store.get('om-post', { best: 0, ok: 0, n: 0 }), quiz = store.get('om-quiz', { best: null, runs: 0 }), fl = store.get('om-flash', { known: [] });
+  const tm = store.get('om-timer', null), tLeft = tm ? (tm.run ? Math.max(0, (tm.end - Date.now()) / 1000) : tm.left) : 0;
+  const fmtT = t => { t = Math.round(t); return Math.floor(t / 3600) + ':' + String(Math.floor(t % 3600 / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); };
+  const pap = code === '7081' ? [['1', '7115'], ['2', '7115']] : code === '0264' ? [['1', '0450'], ['2', '0450']] : lv === '9609-AS' ? [['1', '9609'], ['2', '9609']] : [['3', '9609'], ['4', '9609']];
+  $('#deskG').innerHTML =
+    '<div class="dk w2"><div class="dk-h"><b>Syllabus</b><a href="syllabus.html">Open tracker →</a></div><div class="rings">' + ring('7081') + ring('0264') + ring('9609') + '</div><span class="lbl">Next for ' + esc(LV[lv]) + '</span><ul>' + (nextT.length ? nextT.map(t => '<li><a href="syllabus.html#t-' + t.code + '-' + t.n + '">' + t.n + ' ' + esc(t.t) + '</a><span>' + (S[t.id] === 1 ? 'revising' : 'to do') + '</span></li>').join('') : '<li>Every topic at this level is marked confident.</li>') + '</ul></div>' +
+    '<div class="dk"><div class="dk-h"><b>Past papers</b><a href="past-papers.html">Papers →</a></div><div class="big-k"><div class="bk"><span>Logged</span><b>' + pp.length + '</b></div><div class="bk hi"><span>Average</span><b>' + avg + '</b></div></div><ul>' + (sc.length ? sc.sort((a, b) => b[1].ts - a[1].ts).slice(0, 4).map(x => { const k = x[0].split('_'); return '<li><span>' + k[0] + ' ' + k[1] + ' P' + k[2] + '</span><span>' + Math.round(x[2]) + '%</span></li>'; }).join('') : '<li>No scores logged yet.</li>') + '</ul></div>' +
+    '<div class="dk"><div class="dk-h"><b>Business Lab</b><a href="lab.html">Lab →</a></div><ul><li><span>Quick-check best</span><span>' + (quiz.best == null ? '—' : quiz.best + '%') + '</span></li><li><span>Quizzes run</span><span>' + (quiz.runs || 0) + '</span></li><li><span>Flashcards known</span><span>' + (fl.known || []).length + '</span></li></ul><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><a class="btn btn-xs" href="lab.html#be">Break-even</a><a class="btn btn-xs" href="lab.html#ratio">Ratios</a><a class="btn btn-xs" href="lab.html#inv">Investment</a></div></div>' +
+    '<div class="dk"><div class="dk-h"><b>Exam timer</b><a href="past-papers.html#timer">Timer →</a></div>' + (tm && tLeft > 0 && tLeft < tm.total ? '<div class="bk hi"><span>' + esc(tm.label) + '</span><b>' + fmtT(tLeft) + '</b><small>' + (tm.run ? 'running' : 'paused') + '</small></div>' : '<p class="small">Start a timer at your paper’s exact length.</p>') + '<div style="display:flex;gap:8px;flex-wrap:wrap">' + pap.map(p => '<a class="btn btn-xs" href="past-papers.html#t-' + p[1] + '-' + p[0] + '">' + p[1] + ' P' + p[0] + '</a>').join('') + '</div></div>' +
+    '<div class="dk"><div class="dk-h"><b>Classes</b><a href="about.html#where">Where →</a></div><p class="small">Batches for ' + esc(LV[lv]) + ' run at EVO Institute, Success Institute and online. Ask Sir Osama for the current timetable.</p><a class="btn btn-sm btn-pri" data-wa="Assalam o Alaikum Sir, what are the current class timings for ' + esc(LV[lv]) + '?" href="contact.html">Ask for timings</a></div>';
+  $$('#deskG [data-wa]').forEach(a => { a.href = C.waUrl(a.dataset.wa); a.target = '_blank'; a.rel = 'noopener'; });
+}
+$('#lvSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; store.set('om-level', b.dataset.v); desk(); Snd.soft(); });
+desk(); load(false);
+});
+</script></body></html>

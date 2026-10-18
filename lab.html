@@ -1,0 +1,686 @@
+<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Business Lab — break-even, ratios, cash flow and more · Sir Osama Musani</title><meta name="description" content="Interactive Business tools: break-even, ratio analysis, cash-flow forecast, investment appraisal, price elasticity, a quick-check quiz and key-term flashcards."><link rel="canonical" href="https://osama-musani.nexlyr.solutions/lab.html"><meta name="theme-color" content="#0b0a09"><meta property="og:type" content="website"><meta property="og:site_name" content="Sir Osama Musani · Business"><meta property="og:title" content="Business Lab — break-even, ratios, cash flow and more · Sir Osama Musani"><meta property="og:description" content="Interactive Business tools: break-even, ratio analysis, cash-flow forecast, investment appraisal, price elasticity, a quick-check quiz and key-term flashcards."><meta property="og:url" content="https://osama-musani.nexlyr.solutions/lab.html"><meta property="og:image" content="https://osama-musani.nexlyr.solutions/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><script>(function(){var d=document.documentElement;d.dataset.theme="dark";try{if(!sessionStorage.getItem("om-seen"))d.classList.add("ld-on");}catch(e){}})();</script><link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2?v=912c3c9f" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/dm-sans-latin-400-normal.woff2?v=a220a328" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="assets/site.css?v=ba94c937"><style>@layer base{.lab{position:relative;padding-bottom:clamp(70px,9vw,120px)}
+.lab-tabs{position:sticky;top:84px;z-index:12;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:10px 2px 0;margin-bottom:-1px;
+  background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:12px 12px 0 0}
+.lab-tabs::-webkit-scrollbar{display:none}
+.lab-tabs button{flex:0 0 auto;display:grid;gap:4px;padding:10px 16px 12px;border:1px solid var(--line-w);border-bottom-color:transparent;border-radius:10px 10px 0 0;
+  background:color-mix(in srgb,var(--panel) 80%,transparent);color:var(--ink-3);font-weight:600;font-size:14px;text-align:left;transition:color .25s,background .25s,transform .4s var(--e-out)}
+.lab-tabs button i{font:normal 500 9.5px/1 var(--f-mono);letter-spacing:.12em;color:var(--brass);opacity:.8}
+.lab-tabs button:hover{color:var(--ink);transform:translateY(-2px)}
+.lab-tabs button[aria-selected="true"]{color:var(--ink);background:var(--panel-2);border-color:var(--rule-2);border-bottom-color:transparent;box-shadow:inset 0 2px 0 var(--brass)}
+.tool-p{padding:clamp(20px,3vw,40px);border-top-left-radius:0;scroll-margin-top:150px}
+.tp-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:20px;padding-bottom:22px;margin-bottom:24px;border-bottom:2px solid var(--ink-3)}
+.tp-head>div:first-child{max-width:760px}
+.tp-head .title-sm{margin:10px 0 10px}
+.tp-head .lede{font-size:15.5px}
+.score-b{display:flex;gap:0;border:1px solid var(--rule-2);border-radius:10px;overflow:hidden}
+.score-b>div{display:grid;justify-items:center;padding:10px 16px;min-width:80px}
+.score-b>div+div{border-left:1px solid var(--rule)}
+.score-b b{font-size:1.4rem;font-weight:500}
+.score-b span{font-size:11px;color:var(--ink-3)}
+
+/* generic tool layout */
+.io{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(18px,3vw,36px);align-items:start}
+.io-r{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.ins{display:grid;gap:14px;padding:18px;border-radius:12px;border:1px solid var(--line-w);background:rgba(0,0,0,.14);position:sticky;top:180px}
+:root[data-theme="light"] .ins{background:rgba(255,255,255,.45)}
+.ins h3{font:500 10.5px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--brass);padding-top:6px}
+.ins .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ins .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.ins .field input,.ins .field select{height:42px;font-size:14px}
+.ins .field>label{font-size:10px}
+.ins .acts{display:flex;flex-wrap:wrap;gap:8px}
+.outs{display:grid;gap:16px;min-width:0}
+.lst{display:grid;gap:8px}
+.lst .li{display:grid;grid-template-columns:1fr 120px 34px;gap:8px;align-items:end}
+.lst .li.w3{grid-template-columns:1.2fr 1fr 34px}
+.lst .rm{height:42px;border-radius:7px;border:1px solid var(--line-w);color:var(--ink-3);font-size:18px}
+.lst .rm:hover{color:var(--red);border-color:var(--red)}
+.add{justify-self:start;height:34px;padding:0 12px;border-radius:8px;border:1px dashed var(--rule-2);font-size:13px;color:var(--ink-2)}
+.add:hover{border-color:var(--brass);color:var(--brass)}
+
+/* double entry */
+.post-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start}
+.tx-card{position:relative;padding:22px 22px 20px 50px;border-radius:12px;border:1px solid var(--rule-2);background:repeating-linear-gradient(180deg,transparent 0 31px,var(--ruling) 31px 32px),color-mix(in srgb,var(--panel-solid) 70%,transparent)}
+.tx-card::before{content:"";position:absolute;top:0;bottom:0;left:28px;width:4px;border-left:1px solid var(--margin);border-right:1px solid var(--margin)}
+.tx-card p{margin-top:10px;font:500 clamp(1.3rem,2vw,1.6rem)/1.3 var(--f-display)}
+.tx-card b{display:inline-block;margin-top:12px;font-size:1.1rem;font-weight:500;color:var(--brass);border-bottom:3px double currentColor}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.pk{display:grid;gap:6px;padding:14px;border-radius:10px;border:1.5px dashed var(--rule-2);text-align:left;transition:all .3s}
+.pk span{font:500 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.pk[data-side="c"] span{color:var(--red)}
+.pk b{font-weight:600;font-size:15px;color:var(--ink-3)}
+.pk.set b{color:var(--ink)}
+.pk.on{border-style:solid;border-color:var(--brass);background:color-mix(in srgb,var(--brass) 8%,transparent)}
+.pk[data-side="c"].on{border-color:var(--red);background:color-mix(in srgb,var(--red) 7%,transparent)}
+.acc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.acc-chips button{height:34px;padding:0 11px;border-radius:8px;border:1px solid var(--rule-2);font-size:13px;color:var(--ink-2);transition:all .2s}
+.acc-chips button:hover{border-color:var(--brass);color:var(--ink)}
+.acc-chips button.d{background:color-mix(in srgb,var(--brass) 20%,transparent);border-color:var(--brass);color:var(--ink)}
+.acc-chips button.c{background:color-mix(in srgb,var(--red) 16%,transparent);border-color:var(--red);color:var(--ink)}
+.post-act{display:flex;gap:8px;margin-top:16px}
+.fb{margin-top:14px;min-height:20px}
+.fb .ok,.fb .no{padding:14px 16px;border-radius:10px;font-size:14px;animation:tIn .4s var(--e-out) both}
+.fb .ok{border:1px solid color-mix(in srgb,var(--green) 45%,transparent);background:color-mix(in srgb,var(--green) 9%,transparent)}
+.fb .no{border:1px solid color-mix(in srgb,var(--red) 45%,transparent);background:color-mix(in srgb,var(--red) 8%,transparent)}
+.fb b{display:block;margin-bottom:4px}
+.fb .je{font:500 13px/1.6 var(--f-mono)}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.post-lh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.taccs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;max-height:440px;overflow:auto;padding-right:4px}
+.taccs .tacc{padding:10px;border-radius:8px;border:1px solid var(--line-w);background:color-mix(in srgb,var(--panel-solid) 60%,transparent);font-size:12.5px;animation:tIn .5s var(--e-out) both}
+.taccs .tacc-h b{font-size:1.05rem}
+.taccs .tacc-b{min-height:40px}
+.taccs .tacc-row{font-size:12px}
+.taccs .tacc-row.bal{color:var(--ink-3);font-style:italic;border-bottom:0}
+.taccs .new{animation:rowIn .9s var(--e-out) both}
+@keyframes rowIn{from{background:color-mix(in srgb,var(--brass) 35%,transparent)}}
+.tb-box{margin-top:16px}
+.tb-box .tbl td,.tb-box .tbl th{padding:7px 10px;font-size:13px}
+
+/* ratios */
+.r-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-bottom:18px}
+.yr-h{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:end}
+.yr-h span{font:500 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.r-in{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:center}
+.r-in label{font-size:13px;color:var(--ink-2);line-height:1.25}
+.r-in label small{display:block;font-size:11px;color:var(--ink-3)}
+.r-in input{height:38px;padding:0 10px;border-radius:8px;border:1px solid var(--rule-2);background:rgba(0,0,0,.2);text-align:right;font:500 13px var(--f-mono);width:100%}
+:root[data-theme="light"] .r-in input{background:#fff}
+.r-in input:focus{outline:none;border-color:var(--brass)}
+.r-in input[readonly]{opacity:.7;border-style:dashed}
+.rg{display:grid;gap:10px}
+.rg h5{font:500 10.5px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-top:6px}
+.rc{display:grid;grid-template-columns:1fr auto auto;gap:6px 14px;align-items:center;padding:14px 16px;border-radius:10px;border:1px solid var(--line-w);background:color-mix(in srgb,var(--panel-solid) 55%,transparent)}
+.rc b.n{font-weight:600;font-size:14.5px}
+.rc .v{font:500 1.15rem/1 var(--f-mono);text-align:right}
+.rc .v small{display:block;font-size:10.5px;color:var(--ink-3);margin-top:3px}
+.rc .d{font:500 12px/1 var(--f-mono);padding:5px 7px;border-radius:8px;min-width:56px;text-align:center}
+.rc .d.up{color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent)}
+.rc .d.dn{color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+.rc .d.eq{color:var(--ink-3);background:var(--rule)}
+.rc p{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
+.rc .f{grid-column:1/-1;font:500 11.5px/1.5 var(--f-mono);color:var(--ink-3)}
+
+/* inventory */
+.inv-tbl td,.inv-tbl th{padding:7px 8px!important;font-size:12.5px!important}
+.inv-tbl th{text-align:right}
+.inv-tbl th:first-child{text-align:left}
+.layers{display:block;font-size:10.5px;color:var(--ink-3)}
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cmp .bk.on{border-color:var(--brass)}
+
+/* quiz */
+.qz{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(18px,3vw,36px);align-items:start}
+.qz-setup{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:18px}
+.qz-card{padding:clamp(20px,2.6vw,30px);border-radius:14px;border:1px solid var(--rule-2);background:color-mix(in srgb,var(--panel-solid) 65%,transparent)}
+.qz-meta{display:flex;justify-content:space-between;gap:10px;font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.qz-q{margin:16px 0 18px;font:500 clamp(1.35rem,2vw,1.65rem)/1.3 var(--f-display)}
+.qz-o{display:grid;gap:8px}
+.qz-o button{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:13px 14px;border-radius:10px;border:1px solid var(--rule-2);text-align:left;font-size:15px;transition:all .25s}
+.qz-o button i{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;border:1px solid var(--rule-2);font:normal 600 12px/1 var(--f-mono);color:var(--brass)}
+.qz-o button:hover:not([disabled]){border-color:var(--brass);transform:translateX(3px)}
+.qz-o button.right{border-color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent)}
+.qz-o button.right i{background:var(--green);color:#03140c;border-color:var(--green)}
+.qz-o button.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 10%,transparent)}
+.qz-o button.wrong i{background:var(--red);color:#fff;border-color:var(--red)}
+.qz-o button[disabled]{cursor:default}
+.qz-why{margin-top:16px;padding:14px 16px;border-radius:10px;border-left:3px solid var(--brass);background:color-mix(in srgb,var(--brass) 8%,transparent);font-size:14.5px;color:var(--ink-2);animation:tIn .4s var(--e-out) both}
+.qz-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px}
+.qz-side{display:grid;gap:12px}
+.qz-dots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.qz-dots i{height:8px;border-radius:2px;background:var(--rule-2)}
+.qz-dots i.r{background:var(--green)}.qz-dots i.w{background:var(--red)}.qz-dots i.c{background:var(--brass)}
+.qz-res{display:grid;justify-items:center;text-align:center;gap:10px;padding:30px 10px}
+.qz-res .big{font:italic 500 5rem/1 var(--f-display);color:var(--brass)}
+
+/* flashcards */
+.fc{display:grid;justify-items:center;gap:18px}
+.fc-set{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.fc-card{width:min(640px,100%);height:300px;perspective:1400px;cursor:pointer}
+.fc-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s var(--e-out)}
+.fc-card.flip .fc-in{transform:rotateY(180deg)}
+.fc-f,.fc-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;place-content:center;gap:12px;text-align:center;padding:30px 40px;border-radius:16px;border:1px solid var(--rule-2);
+  background:repeating-linear-gradient(180deg,transparent 0 35px,var(--ruling) 35px 36px),linear-gradient(180deg,var(--panel-2),var(--panel-solid))}
+.fc-f b{font:500 clamp(2rem,4vw,2.8rem)/1.1 var(--f-display)}
+.fc-f small,.fc-b small{font:500 10.5px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.fc-b{transform:rotateY(180deg)}
+.fc-b p{font-size:clamp(1rem,1.6vw,1.15rem);line-height:1.6;color:var(--ink)}
+.fc-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.fc-prog{font:500 12px/1 var(--f-mono);color:var(--ink-3)}
+
+@media (max-width:1000px){.io,.io-r,.post-g,.qz{grid-template-columns:1fr}.ins{position:relative;top:0}}
+@media (max-width:620px){.lab-tabs{top:80px}.tool-p{padding:18px 14px}.cmp{grid-template-columns:1fr}.r-in{grid-template-columns:1.2fr 1fr 1fr}.ins .row3{grid-template-columns:1fr 1fr}.fc-card{height:340px}.score-b>div{min-width:64px;padding:8px 10px}}
+.lab-tabs{transition:top .7s var(--e-soft)}
+html:has(.nav.hide) .lab-tabs{top:8px}
+@media (max-width:760px){.lab-tabs{top:82px}
+}}
+/* ---------------------------------------------------------------- lab: shared controls and charts */
+.rngf label{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.rngf output{font:500 12.5px var(--f-mono);color:var(--volt);letter-spacing:0;text-transform:none}
+.rngf input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;padding:0;border:0}
+.rngf input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--volt-2),var(--volt));opacity:.8}
+.rngf input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--volt-2),var(--volt))}
+.rngf input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-7px;border-radius:50%;background:#fffae9;border:3px solid var(--volt);box-shadow:0 0 12px var(--volt-glow);cursor:grab}
+.rngf input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fffae9;border:3px solid var(--volt);cursor:grab}
+.chart{width:100%;height:auto;display:block;margin-top:8px;overflow:visible}
+.chart .ax{fill:none;stroke:var(--rule-3);stroke-width:1.4}
+.chart .axl,.chart .tk{font:500 11.5px var(--f-mono);fill:var(--ink-3)}
+.chart .tk.on{fill:var(--volt)}
+.chart .ln{fill:none;stroke:var(--volt);stroke-width:3;stroke-linejoin:round;stroke-linecap:round;filter:drop-shadow(0 0 5px var(--volt-glow))}
+.chart .ln2{fill:none;stroke:var(--ink-4);stroke-width:1.6;stroke-dasharray:5 5}
+.chart .area{fill:color-mix(in srgb,var(--volt) 16%,transparent);stroke:none}
+.chart .dot{fill:#ffb03a;filter:drop-shadow(0 0 6px rgba(255,176,58,.8))}
+.chart .lbl-a{font:600 13px var(--f-mono);fill:var(--ink)}
+.chart .lam{fill:none;stroke:#ffb03a;stroke-width:1.6}
+.chart .hl{fill:none;stroke:rgba(255,176,58,.55);stroke-width:1.2;stroke-dasharray:3 4}
+.track{position:relative;margin-top:14px;height:58px;border-radius:12px;border:1px solid var(--line-w);background:repeating-linear-gradient(90deg,transparent 0 38px,var(--rule) 38px 40px),color-mix(in srgb,var(--panel-solid) 60%,transparent);overflow:hidden}
+.track .car{position:absolute;left:8px;bottom:6px;width:60px;will-change:transform}
+.track .car svg{width:60px;height:26px}
+.track .car rect,.track .car path{fill:color-mix(in srgb,var(--volt) 30%,transparent);stroke:var(--volt);stroke-width:1.6}
+.track .car circle{fill:var(--bg);stroke:var(--ink-2);stroke-width:1.6}
+.tr-r{position:absolute;right:12px;top:8px;font-size:11.5px;color:var(--ink-3)}
+.fbd2 .gr,.col .gr{stroke:var(--rule-3);stroke-width:2;fill:none}
+.fbd2 .body{fill:color-mix(in srgb,var(--panel-solid) 80%,transparent);stroke:var(--ink-3);stroke-width:2}
+.fbd2 .arr-d{fill:none;stroke:var(--volt);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.fbd2 .arr-r{fill:none;stroke:#ff8574;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.col .tA{fill:color-mix(in srgb,var(--volt) 28%,transparent);stroke:var(--volt);stroke-width:2}
+.col .tB{fill:rgba(255,176,58,.22);stroke:#ffb03a;stroke-width:2}
+.sank .s-in,.sank .s-use{fill:color-mix(in srgb,var(--volt) 55%,transparent)}
+.sank .s-waste{fill:rgba(255,133,116,.55)}
+.sc-mini{aspect-ratio:2/1;margin-top:8px}
+.sc-mini .sc-tr{stroke-width:2.5}
+.rf .med{fill:color-mix(in srgb,var(--volt) 12%,transparent)}
+.rf .bd{stroke:var(--ink-3);stroke-width:2}
+.rf .nm{stroke:var(--ink-4);stroke-width:1.4;stroke-dasharray:6 6}
+.rf .ray{stroke:#ffe45c;stroke-width:3;fill:none;filter:drop-shadow(0 0 5px rgba(255,228,92,.8))}
+.rf .ray.rfl{stroke-width:2}
+.ln-d .lensb{fill:color-mix(in srgb,var(--volt) 12%,transparent);stroke:var(--volt);stroke-width:1.6}
+.ln-d .fpt{fill:#ffb03a}
+.ln-d .ray{stroke:#ffe45c;stroke-width:2;fill:none}
+.ln-d .ray.r2{stroke:#7ef0b0}
+.ln-d .ray.vir{stroke-dasharray:6 5;opacity:.75}
+.ln-d .obj{stroke:var(--ink);stroke-width:3;fill:none;stroke-linecap:round}
+.ln-d .img{stroke:var(--volt);stroke-width:3;fill:none;stroke-linecap:round}
+.ln-d .vimg{stroke-dasharray:5 4}
+.lens-wrap{background:repeating-linear-gradient(0deg,transparent 0 7px,var(--rule) 7px 8px),repeating-linear-gradient(90deg,transparent 0 7px,var(--rule) 7px 8px);border-radius:10px;padding:4px}
+.ckt .wire{fill:none;stroke:var(--ink-3);stroke-width:2.2}
+.ckt .cell{stroke:var(--ink);stroke-width:3}
+.ckt .res{fill:var(--bg);stroke:var(--volt);stroke-width:2.2}
+.ckt .amm{fill:var(--bg);stroke:var(--ink-2);stroke-width:2}
+.ckt .rv{fill:var(--volt)}
+.ckt .elec{fill:#ffe45c;filter:drop-shadow(0 0 5px rgba(255,228,92,.9))}
+.nuc .nu{fill:var(--volt);transition:fill .3s}
+.nuc .nu.d{fill:var(--rule-2)}
+.bk b small{font-size:.6em;color:var(--ink-3)}
+.red{color:var(--red)}
+/* ---------------------------------------------------------------- business lab */
+.lab-art{padding:0;overflow:hidden;background:#141010}
+.lab-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lab-art .ph-c{z-index:2}
+.chart .lnc{fill:none;stroke:#e2382d;stroke-width:3;stroke-linecap:round}
+.chart .lnf{fill:none;stroke:var(--ink-3);stroke-width:1.6;stroke-dasharray:6 6}
+.chart .qline{stroke:var(--rule-3);stroke-width:1.2;stroke-dasharray:2 4}
+.chart .lbl-a{paint-order:stroke;stroke:var(--bg);stroke-width:5px}
+.chart .bar-p{fill:var(--volt)}
+.chart .bar-n{fill:#e2382d}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.legend i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle;border-radius:2px}
+.legend i.r{background:var(--volt)}.legend i.c{background:#e2382d}.legend i.f{background:var(--ink-3)}
+.acts.wrapb{display:flex;flex-wrap:wrap;gap:8px}
+.wi{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.wi b{color:var(--ink)}
+.work.sm{font-size:12.5px;margin-top:8px;opacity:.85}
+.rat-o{display:grid;gap:8px}
+.rat-v{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.rat-v b{font:400 2rem/1 var(--f-display);color:var(--volt);letter-spacing:.02em}
+.rat-v p{font-size:.92rem;color:var(--ink-2)}
+.cf-io{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(18px,3vw,32px);align-items:start}
+.cf-scroll{overflow-x:auto;border-radius:12px;border:1px solid var(--line-w)}
+table.cf{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+.cf th,.cf td{padding:7px 8px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+.cf th:first-child{text-align:left;font-weight:500;color:var(--ink-2);position:sticky;left:0;background:var(--v-ink-2)}
+.cf thead th{font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--volt);background:var(--v-ink-2)}
+.cf tr.sub th{font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding-top:14px}
+.cf tr.tot td,.cf tr.tot th{font-weight:600;color:var(--ink)}
+.cf tr.net td{color:var(--ink);font-weight:600;background:rgb(255 199 0 / .05)}
+.cf tr.close td,.cf tr.close th{font-weight:700;color:var(--volt);border-top:2px solid var(--rule-3)}
+.cf td.neg{color:#ff7a6e!important}
+.cf input{width:72px;padding:5px 6px;text-align:right;font:500 13px var(--f-mono);color:var(--ink);background:rgb(255 255 255 / .04);border:1px solid var(--line-w);border-radius:6px}
+.cf input:focus{outline:2px solid var(--volt);outline-offset:1px}
+table.cf.iv{min-width:480px}
+.mx-bars{display:grid;gap:10px}
+.mx-b{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 20px;gap:12px;align-items:center;font-size:13.5px;color:var(--ink-2)}
+.mx-b i{height:8px;border-radius:6px;background:var(--rule);position:relative;overflow:hidden}
+.mx-b i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:linear-gradient(90deg,#ffe27a,#ffc700);border-radius:6px;transition:width .4s var(--e-out)}
+.mx-b b{font:400 1.1rem/1 var(--f-display);color:var(--ink)}
+.work.para{line-height:1.75}
+.wx{display:grid;gap:12px;max-width:760px}
+@media (max-width:960px){.cf-io{grid-template-columns:1fr}}
+</style></head><body data-page="lab"><a class="skip" href="#main">Skip to content</a><div class="bg-base" aria-hidden="true"></div><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><canvas id="bg3d" aria-hidden="true"></canvas><div class="bg-veil" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div><div class="ldx" aria-hidden="true"><div class="ldx-fill"><div class="ldx-grp"><div class="ldx-w">OSAMA<div class="ldx-gold"><img src="assets/img/osama-musani.webp?v=b2573896" alt="" decoding="async"><i class="ldx-shine"></i></div><i class="ldx-crest"></i></div><div class="ldx-s">O, IGCSE &amp; A Level Business &middot; Karachi</div></div></div><div class="ldx-ink"><div class="ldx-grp"><div class="ldx-w"><span class="ldx-i"><i>O</i></span><span><i>S</i></span><span><i>A</i></span><span><i>M</i></span><span><i>A</i></span></div><div class="ldx-s"><span>O, IGCSE &amp; A Level Business &middot; Karachi</span></div></div></div><div class="ldx-m ldx-tl"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122"><span>Sir Osama Musani</span></div><div class="ldx-m ldx-tr">EconoBuz &middot; Case file 001</div><div class="ldx-m ldx-bl"><b id="ldN">000</b><span>Opening the case file</span></div><div class="ldx-m ldx-br">O Level 7115 / 7081 &middot; IGCSE 0450 / 0264<br>AS &amp; A Level 9609</div></div><div class="pt" aria-hidden="true"><div class="pt-bg"></div><div class="pt-in"><span class="pt-f"></span><div class="pt-w"></div></div><i class="pt-line"></i></div><i class="sprog" aria-hidden="true"></i><header class="nav"><a class="brand" href="index.html" aria-label="Sir Osama Musani, home"><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><span class="brand-t"><b>Osama Musani</b><span>Business · O &amp; A Level</span></span></a><nav class="nav-links" aria-label="Main"><a href="courses.html">Courses</a><a href="syllabus.html">Syllabus</a><a href="cases.html">Case files</a><a href="past-papers.html">Past papers</a><a href="lab.html" aria-current="page">Lab</a><a href="portal.html">Portal</a><a href="about.html">About</a></nav><div class="nav-r"><button class="nav-search" type="button" data-cmdk aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>⌘K</kbd></button><a class="btn btn-pri btn-sm btn-enrol" href="contact.html#enrol">Enrol</a><button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button></div></header><div class="menu" id="menu" aria-hidden="true"><nav aria-label="Mobile"><a href="index.html"><small>01</small>Home<i>f.01</i></a><a href="courses.html"><small>02</small>Courses<i>f.02</i></a><a href="syllabus.html"><small>03</small>Syllabus<i>f.03</i></a><a href="cases.html"><small>04</small>Case files<i>f.04</i></a><a href="past-papers.html"><small>05</small>Past papers<i>f.05</i></a><a href="lab.html" aria-current="page"><small>06</small>Lab<i>f.06</i></a><a href="portal.html"><small>07</small>Portal<i>f.07</i></a><a href="about.html"><small>08</small>About<i>f.08</i></a><a href="contact.html"><small>09</small>Contact<i>f.09</i></a></nav><div class="menu-foot"><a class="btn btn-pri" data-wa="Assalam o Alaikum Sir, I would like to enrol in Business with Sir Osama Musani." href="contact.html#enrol" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-sm mf-portal" href="portal.html">Student portal</a><button class="btn btn-sm" type="button" data-sound-toggle>Sound</button></div></div><main id="main"><section class="phero" data-shape="be" data-shape-x=".56" data-shape-y=".06" data-shape-s=".6" data-shape-a=".48" data-shape-my="-.52" data-shape-ms=".4" data-shape-ma=".22">
+  <div class="wrap phero-g">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><i></i><span>Business Lab</span></nav>
+      <h1 class="display" data-split>Do the numbers <em>before the exam does.</em></h1>
+      <p class="lede" data-rv>Six tools for the calculations and judgements Business papers test every series, plus a formula trainer, a quick-check quiz and flashcards. Every result shows its working, so you can copy the method straight into your answer.</p>
+      <div class="phero-meta" data-rv><span class="tag brass">7081 &middot; 0264</span><span class="tag violet">9609</span><span class="tag">Working shown in full</span></div>
+    </div>
+    <div class="phero-art" data-rv="scale">
+      <figure class="ph phv lab-art" data-par aria-hidden="true">
+        <img src="assets/img/g-board.webp?v=b8be0788" alt="" width="540" height="720" decoding="async">
+        <figcaption class="ph-c"><span class="ph-cap">The Business Lab</span><b>Every answer, with its working.</b></figcaption>
+      </figure>
+      <div class="float f-a"><span>Calculators</span><b class="num">6</b><small>break-even to NPV</small></div>
+      <div class="float f-b"><span>Quick-check</span><b class="num">44</b><small>questions, explained</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="lab" data-shape="chart" data-shape-x=".55" data-shape-y=".05" data-shape-s=".7" data-shape-a=".4" data-shape-spin=".04" data-shape-my=".5" data-shape-ms=".4">
+  <div class="wrap">
+    <div class="lab-tabs" role="tablist" aria-label="Lab tools" id="labTabs">
+      <button role="tab" type="button" data-t="be" aria-selected="true"><i>O &middot; AS</i>Break-even</button>
+      <button role="tab" type="button" data-t="ratio" aria-selected="false"><i>O &middot; A</i>Ratios</button>
+      <button role="tab" type="button" data-t="cash" aria-selected="false"><i>O &middot; AS</i>Cash flow</button>
+      <button role="tab" type="button" data-t="inv" aria-selected="false"><i>A Level</i>Investment</button>
+      <button role="tab" type="button" data-t="ped" aria-selected="false"><i>A Level</i>Elasticity</button>
+      <button role="tab" type="button" data-t="mix" aria-selected="false"><i>All</i>Billboard judge</button>
+      <button role="tab" type="button" data-t="which" aria-selected="false"><i>All</i>Which formula?</button>
+      <button role="tab" type="button" data-t="quiz" aria-selected="false"><i>All</i>Quick-check</button>
+      <button role="tab" type="button" data-t="flash" aria-selected="false"><i>All</i>Flashcards</button>
+    </div>
+
+    <article class="tool-p card" id="be" role="tabpanel" data-shape-on="be">
+      <header class="tp-head"><div><span class="folio">Tool 01 &middot; 7081 4.4 &middot; 9609 5.4</span><h2 class="title-sm">Break-even <em>with what-ifs</em></h2><p class="lede">Enter the costs and the price. The chart, the working and the margin of safety update as you type. Then try a what-if: exam questions love asking what happens when one figure changes.</p></div></header>
+      <div class="io"><form class="ins" id="beF" autocomplete="off"></form><div class="outs" id="beO"></div></div>
+    </article>
+
+    <article class="tool-p card" id="ratio" role="tabpanel" hidden data-shape-on="pie">
+      <header class="tp-head"><div><span class="folio">Tool 02 &middot; 7081 5.5 &middot; 9609 10.2</span><h2 class="title-sm">Ratio <em>analysis</em></h2><p class="lede">Enter figures from an income statement and a statement of financial position. You get each ratio, the formula with your numbers in it, and what it says about the business.</p></div></header>
+      <div class="io"><form class="ins" id="raF" autocomplete="off"></form><div class="outs" id="raO"></div></div>
+    </article>
+
+    <article class="tool-p card" id="cash" role="tabpanel" hidden data-shape-on="coin">
+      <header class="tp-head"><div><span class="folio">Tool 03 &middot; 7081 5.2 &middot; 9609 5.3</span><h2 class="title-sm">Cash-flow <em>forecast</em></h2><p class="lede">Edit any figure. Net cash flow and the opening and closing balances recalculate, and the chart shows exactly which month would need an overdraft.</p></div></header>
+      <div class="cf-io"><div class="cf-scroll" data-lenis-prevent><table class="cf" id="cfT"></table></div><div class="outs" id="cfO"></div></div>
+    </article>
+
+    <article class="tool-p card" id="inv" role="tabpanel" hidden data-shape-on="chart">
+      <header class="tp-head"><div><span class="folio">Tool 04 &middot; 9609 10.3</span><h2 class="title-sm">Investment <em>appraisal</em></h2><p class="lede">Enter the cost of the investment and its net cash flow each year. Payback, average rate of return and net present value are worked out in full, with discount factors to three decimal places, the way exam tables give them.</p></div></header>
+      <div class="io"><form class="ins" id="ivF" autocomplete="off"></form><div class="outs" id="ivO"></div></div>
+    </article>
+
+    <article class="tool-p card" id="ped" role="tabpanel" hidden data-shape-on="grid">
+      <header class="tp-head"><div><span class="folio">Tool 05 &middot; 9609 8.1 &middot; 7081 3.3</span><h2 class="title-sm">Price <em>elasticity</em></h2><p class="lede">Change the price and the quantity sold. See the PED, whether demand is elastic, and what the price change did to revenue: the reason a business cares.</p></div></header>
+      <div class="io"><form class="ins" id="peF" autocomplete="off"></form><div class="outs" id="peO"></div></div>
+    </article>
+
+    <article class="tool-p card" id="mix" role="tabpanel" hidden data-shape-on="om">
+      <header class="tp-head"><div><span class="folio">Tool 06 &middot; 7081 3.1&ndash;3.4 &middot; 9609 3.3, 8.2</span><h2 class="title-sm">Billboard <em>judge</em></h2><p class="lede">His Judging the Billboard series, as a tool. Pick the next billboard you pass, score it on the questions an examiner would ask, and get a structured paragraph to finish in your own words.</p></div></header>
+      <div class="io"><form class="ins" id="mxF" autocomplete="off"></form><div class="outs" id="mxO"></div></div>
+    </article>
+
+    <article class="tool-p card" id="which" role="tabpanel" hidden data-shape-on="coin">
+      <header class="tp-head"><div><span class="folio">Drill &middot; choosing the formula</span><h2 class="title-sm">Which <em>formula?</em></h2><p class="lede">The calculation is easy once you know which one the question wants. Read the situation and pick the measure.</p></div><div class="score-b"><div><b class="num" id="wxS">0</b><span>right</span></div><div><b class="num" id="wxN">0</b><span>tried</span></div></div></header>
+      <div id="wxBox"></div>
+    </article>
+
+    <article class="tool-p card" id="quiz" role="tabpanel" hidden data-shape-on="score">
+      <header class="tp-head"><div><span class="folio">Drill &middot; quick-check questions</span><h2 class="title-sm">Quick-<em>check</em></h2><p class="lede">Short questions on definitions, calculations and theories, each with a worked explanation. Written for this site; they are not Cambridge questions.</p></div><div class="score-b"><div><b class="num" id="qBest">&mdash;</b><span>best</span></div><div><b class="num" id="qRuns">0</b><span>runs</span></div></div></header>
+      <div id="qzBox"></div>
+    </article>
+
+    <article class="tool-p card" id="flash" role="tabpanel" hidden data-shape-on="pie">
+      <header class="tp-head"><div><span class="folio">Drill &middot; theories, terms, formulas</span><h2 class="title-sm">Flash<em>cards</em></h2><p class="lede">Theories and models, key terms and the formulas. Flip, then mark it known or still learning. Space flips, arrows move.</p></div><div class="score-b"><div><b class="num" id="fKnown">0</b><span>known</span></div></div></header>
+      <div id="fcBox"></div>
+    </article>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-top"><div><img class="foot-logo" src="assets/img/om-logo.svg?v=1a003650" alt="Sir Osama Musani, O, IGCSE &amp; A Level Business" width="448" height="448" loading="lazy" decoding="async"><p class="foot-word">Osama<span>Musani.</span></p><p class="small" style="margin-top:14px;max-width:36ch">Cambridge O Level, IGCSE and A Level Business, taught through campaigns happening right now. Karachi and online.</p></div><div><h4>Study</h4><ul><li><a href="courses.html">Courses</a></li><li><a href="syllabus.html">Syllabus tracker</a></li><li><a href="past-papers.html">Past papers</a></li><li><a href="cases.html">Case files</a></li><li><a href="lab.html">Business Lab</a></li><li><a href="portal.html">Student portal</a></li></ul></div><div><h4>Sir Osama</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html#where">Where he teaches</a></li><li><a href="contact.html#enrol">Enrol</a></li><li><a href="contact.html#faq">Questions</a></li></ul></div><div><h4>Follow</h4><ul><li><a data-wa="Assalam o Alaikum" href="contact.html">WhatsApp</a></li><li><a data-href="instagram" href="#">Instagram</a></li><li><a data-href="facebook" href="#">Facebook</a></li><li><a data-href="youtube" href="#">YouTube</a></li><li><a data-href="instagram2" href="#">@osama_musani</a></li><li><a data-href="linkedin" href="#">LinkedIn</a></li></ul></div></div><div class="nxb">
+      <a class="nxb__id" href="https://nexlyr.solutions/" target="_blank" rel="noopener"
+         aria-label="Nexlyr Solutions — the studio that designed and built this site">
+        <span class="nxb__mk" aria-hidden="true"><svg viewBox="0 0 631 1011" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="Nexlyr Solutions logo"><defs><linearGradient id="nxbLogoG" gradientUnits="userSpaceOnUse" x1="277.4" y1="43.9" x2="724.3" y2="114.7"><stop offset="0" stop-color="#f4b701"/><stop offset="1" stop-color="#b38601"/></linearGradient></defs><g fill="url(#nxbLogoG)"><rect x="2.5" y="1" width="27.2" height="6.8"/><rect x="70.5" y="1" width="27.2" height="6.8"/><rect x="124.9" y="1" width="88.4" height="6.8"/><rect x="233.7" y="1" width="27.2" height="6.8"/><rect x="294.9" y="1" width="27.2" height="6.8"/><rect x="342.5" y="1" width="27.2" height="6.8"/><rect x="430.9" y="1" width="27.2" height="6.8"/><rect x="492.1" y="1" width="27.2" height="6.8"/><rect x="539.7" y="1" width="74.8" height="6.8"/><rect x="2.5" y="7.8" width="34" height="6.8"/><rect x="70.5" y="7.8" width="27.2" height="6.8"/><rect x="124.9" y="7.8" width="88.4" height="6.8"/><rect x="233.7" y="7.8" width="27.2" height="6.8"/><rect x="294.9" y="7.8" width="27.2" height="6.8"/><rect x="342.5" y="7.8" width="27.2" height="6.8"/><rect x="430.9" y="7.8" width="27.2" height="6.8"/><rect x="492.1" y="7.8" width="27.2" height="6.8"/><rect x="539.7" y="7.8" width="81.6" height="6.8"/><rect x="2.5" y="14.6" width="34" height="6.8"/><rect x="70.5" y="14.6" width="27.2" height="6.8"/><rect x="124.9" y="14.6" width="27.2" height="6.8"/><rect x="233.7" y="14.6" width="34" height="6.8"/><rect x="288.1" y="14.6" width="34" height="6.8"/><rect x="342.5" y="14.6" width="27.2" height="6.8"/><rect x="430.9" y="14.6" width="27.2" height="6.8"/><rect x="492.1" y="14.6" width="27.2" height="6.8"/><rect x="539.7" y="14.6" width="27.2" height="6.8"/><rect x="600.9" y="14.6" width="27.2" height="6.8"/><rect x="2.5" y="21.4" width="40.8" height="6.8"/><rect x="70.5" y="21.4" width="27.2" height="6.8"/><rect x="124.9" y="21.4" width="27.2" height="6.8"/><rect x="240.5" y="21.4" width="34" height="6.8"/><rect x="281.3" y="21.4" width="34" height="6.8"/><rect x="342.5" y="21.4" width="27.2" height="6.8"/><rect x="430.9" y="21.4" width="27.2" height="6.8"/><rect x="492.1" y="21.4" width="27.2" height="6.8"/><rect x="539.7" y="21.4" width="27.2" height="6.8"/><rect x="600.9" y="21.4" width="27.2" height="6.8"/><rect x="2.5" y="28.2" width="47.6" height="6.8"/><rect x="70.5" y="28.2" width="27.2" height="6.8"/><rect x="124.9" y="28.2" width="27.2" height="6.8"/><rect x="247.3" y="28.2" width="61.2" height="6.8"/><rect x="342.5" y="28.2" width="27.2" height="6.8"/><rect x="437.7" y="28.2" width="27.2" height="6.8"/><rect x="485.3" y="28.2" width="27.2" height="6.8"/><rect x="539.7" y="28.2" width="27.2" height="6.8"/><rect x="600.9" y="28.2" width="27.2" height="6.8"/><rect x="2.5" y="35" width="54.4" height="6.8"/><rect x="70.5" y="35" width="27.2" height="6.8"/><rect x="124.9" y="35" width="27.2" height="6.8"/><rect x="254.1" y="35" width="47.6" height="6.8"/><rect x="342.5" y="35" width="27.2" height="6.8"/><rect x="444.5" y="35" width="27.2" height="6.8"/><rect x="478.5" y="35" width="27.2" height="6.8"/><rect x="539.7" y="35" width="27.2" height="6.8"/><rect x="600.9" y="35" width="27.2" height="6.8"/><rect x="2.5" y="41.8" width="27.2" height="6.8"/><rect x="36.5" y="41.8" width="27.2" height="6.8"/><rect x="70.5" y="41.8" width="27.2" height="6.8"/><rect x="124.9" y="41.8" width="81.6" height="6.8"/><rect x="260.9" y="41.8" width="34" height="6.8"/><rect x="342.5" y="41.8" width="27.2" height="6.8"/><rect x="451.3" y="41.8" width="47.6" height="6.8"/><rect x="539.7" y="41.8" width="27.2" height="6.8"/><rect x="600.9" y="41.8" width="27.2" height="6.8"/><rect x="2.5" y="48.6" width="27.2" height="6.8"/><rect x="36.5" y="48.6" width="27.2" height="6.8"/><rect x="70.5" y="48.6" width="27.2" height="6.8"/><rect x="124.9" y="48.6" width="81.6" height="6.8"/><rect x="260.9" y="48.6" width="34" height="6.8"/><rect x="342.5" y="48.6" width="27.2" height="6.8"/><rect x="458.1" y="48.6" width="34" height="6.8"/><rect x="539.7" y="48.6" width="27.2" height="6.8"/><rect x="600.9" y="48.6" width="27.2" height="6.8"/><rect x="2.5" y="55.4" width="27.2" height="6.8"/><rect x="43.3" y="55.4" width="54.4" height="6.8"/><rect x="124.9" y="55.4" width="27.2" height="6.8"/><rect x="254.1" y="55.4" width="47.6" height="6.8"/><rect x="342.5" y="55.4" width="27.2" height="6.8"/><rect x="464.9" y="55.4" width="27.2" height="6.8"/><rect x="539.7" y="55.4" width="81.6" height="6.8"/><rect x="2.5" y="62.2" width="27.2" height="6.8"/><rect x="43.3" y="62.2" width="54.4" height="6.8"/><rect x="124.9" y="62.2" width="27.2" height="6.8"/><rect x="247.3" y="62.2" width="61.2" height="6.8"/><rect x="342.5" y="62.2" width="27.2" height="6.8"/><rect x="464.9" y="62.2" width="27.2" height="6.8"/><rect x="539.7" y="62.2" width="74.8" height="6.8"/><rect x="2.5" y="69" width="27.2" height="6.8"/><rect x="50.1" y="69" width="47.6" height="6.8"/><rect x="124.9" y="69" width="27.2" height="6.8"/><rect x="240.5" y="69" width="34" height="6.8"/><rect x="281.3" y="69" width="34" height="6.8"/><rect x="342.5" y="69" width="27.2" height="6.8"/><rect x="464.9" y="69" width="27.2" height="6.8"/><rect x="539.7" y="69" width="27.2" height="6.8"/><rect x="580.5" y="69" width="34" height="6.8"/><rect x="2.5" y="75.8" width="27.2" height="6.8"/><rect x="56.9" y="75.8" width="40.8" height="6.8"/><rect x="124.9" y="75.8" width="27.2" height="6.8"/><rect x="233.7" y="75.8" width="34" height="6.8"/><rect x="288.1" y="75.8" width="34" height="6.8"/><rect x="342.5" y="75.8" width="27.2" height="6.8"/><rect x="464.9" y="75.8" width="27.2" height="6.8"/><rect x="539.7" y="75.8" width="27.2" height="6.8"/><rect x="587.3" y="75.8" width="34" height="6.8"/><rect x="2.5" y="82.6" width="27.2" height="6.8"/><rect x="63.7" y="82.6" width="34" height="6.8"/><rect x="124.9" y="82.6" width="88.4" height="6.8"/><rect x="233.7" y="82.6" width="27.2" height="6.8"/><rect x="294.9" y="82.6" width="27.2" height="6.8"/><rect x="342.5" y="82.6" width="88.4" height="6.8"/><rect x="464.9" y="82.6" width="27.2" height="6.8"/><rect x="539.7" y="82.6" width="27.2" height="6.8"/><rect x="594.1" y="82.6" width="34" height="6.8"/><rect x="2.5" y="89.4" width="27.2" height="6.8"/><rect x="70.5" y="89.4" width="27.2" height="6.8"/><rect x="124.9" y="89.4" width="88.4" height="6.8"/><rect x="233.7" y="89.4" width="27.2" height="6.8"/><rect x="294.9" y="89.4" width="27.2" height="6.8"/><rect x="342.5" y="89.4" width="88.4" height="6.8"/><rect x="464.9" y="89.4" width="27.2" height="6.8"/><rect x="539.7" y="89.4" width="27.2" height="6.8"/><rect x="600.9" y="89.4" width="27.2" height="6.8"/><rect x="0" y="128" width="98.5" height="883"/><rect x="133.25" y="128" width="98.5" height="883"/><rect x="266.5" y="128" width="98.5" height="883"/><rect x="399.75" y="128" width="98.5" height="630"/><rect x="533" y="128" width="98.5" height="630"/></g></svg></span>
+        <span class="nxb__tx"><span class="nxb__kk">Designed &amp; built by</span><span class="nxb__nm">Nexlyr Solutions</span></span>
+      </a>
+      <a class="nxb__go" target="_blank" rel="noopener"
+         href="https://wa.me/923053687680?text=Hi%20Nexlyr%21%20I%20saw%20Sir%20Osama%20Musani%27s%20website%20and%20I%27d%20like%20a%20site%20like%20it."
+         aria-label="Connect with Nexlyr Solutions on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.14 6.44 2.14 11.9c0 1.75.46 3.45 1.32 4.95L2.05 22l5.28-1.38a9.86 9.86 0 0 0 4.71 1.2c5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.95-4.37-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36l.55.01c.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.15.12.32.02.51-.09.2-.14.32-.28.49l-.42.49c-.14.14-.28.29-.12.57.16.29.72 1.18 1.54 1.91 1.06.94 1.95 1.23 2.23 1.37.28.15.44.12.6-.07.17-.2.7-.81.88-1.09.19-.29.37-.24.63-.14.25.09 1.62.76 1.9.9.28.15.46.22.53.34.07.12.07.68-.17 1.34z"/></svg>
+        Connect
+      </a>
+    </div><div class="foot-mark" aria-hidden="true"><div class="fm-o">OSAMA MUSANI</div><div class="fm-f">OSAMA MUSANI</div></div><div class="foot-meta"><span>© <span data-year>2026</span> Sir Osama Musani · EconoBuz · Karachi</span><span>Syllabus summaries from Cambridge International’s published syllabuses. Not affiliated with Cambridge.</span></div></div></footer><div class="dock" role="toolbar" aria-label="Display"><button type="button" data-sound-btn aria-label="Sound"></button><button type="button" data-top-btn aria-label="Back to top"><svg class="ring" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></div><button class="fab" type="button" aria-controls="bot" aria-expanded="false"><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><span class="t">Ask Buzz</span></button><nav class="mbar" aria-label="Quick actions"><button class="mb-ask" type="button" data-ask><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><span class="mb-t"><small>Ask</small><b>Buzz</b></span></button><a class="btn btn-pri mb-enrol" data-wa="Assalam o Alaikum Sir, I would like to enrol in Business classes with Sir Osama Musani." href="contact.html#enrol" target="_blank" rel="noopener">Enrol <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a><button class="mb-ic" type="button" data-cmdk aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></nav><div class="bot" id="bot" role="dialog" aria-label="Ask Buzz" aria-hidden="true"><div class="bot-h"><span class="seal" aria-hidden="true"><img src="assets/img/om-mark.svg?v=88080bf9" alt="" width="195" height="122" decoding="async"></span><div><b>Buzz</b><small><i></i>Help desk · answers instantly</small></div><button class="xbtn" type="button" aria-label="Close">×</button></div><div class="bot-log" aria-live="polite"></div><div class="bot-chips"><button class="chip" type="button">Fees and timings</button><button class="chip" type="button" data-q="Where does he teach?">Where he teaches</button><button class="chip" type="button" data-q="Are classes online or on-site?">Online or on-site?</button><button class="chip" type="button" data-q="How long is 9609 paper 1?">9609 Paper 1 length</button><button class="chip" type="button" data-q="break-even formula">Break-even formula</button><button class="chip" type="button" data-q="What is opportunity cost">Opportunity cost?</button><button class="chip" type="button" data-q="Herzberg">Herzberg</button></div><form class="bot-f" autocomplete="off"><input type="text" placeholder="Ask about classes, a topic or a formula…" aria-label="Your question"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form></div><div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="scrim"></div><div class="cmdk-box"><div class="cmdk-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="cmdkIn" placeholder="Jump to a page, topic, tool or action…" autocomplete="off" aria-label="Search"><kbd>esc</kbd></div><div class="cmdk-list" id="cmdkList" role="listbox"></div><div class="cmdk-foot"><span>↑↓ move</span><span>↵ open</span><span>/ or ⌘K</span></div></div></div><div class="modal" id="modal" aria-hidden="true"><div class="scrim" data-close></div><div class="modal-box" role="dialog" aria-modal="true"><button class="xbtn" type="button" data-close aria-label="Close">×</button><div id="modalBody"></div></div></div><div class="cursor" aria-hidden="true"><i class="c-dot"></i><i class="c-ring"></i></div><script src="assets/vendor/gsap.min.js?v=47da594c"></script><script src="assets/vendor/ScrollTrigger.min.js?v=ba1fa78e"></script><script src="assets/vendor/lenis.min.js?v=79e3a064"></script><script>window.RA_THREE="assets/vendor/three.min.js?v=eb854986"</script><script src="config.js?v=3f49d761"></script><script src="assets/app.js?v=b5633142"></script><script>/* Business Lab — six calculators and judgements, a formula trainer, quick-check and flashcards */
+RA.page(function () {
+const { $, $$, esc, store, Snd, toast } = RA, D = RA.DATA;
+const F = (n, dp) => RA.fmt(n, dp), N = v => RA.num(v);
+const rs = n => (n < 0 ? '(' : '') + 'Rs ' + RA.fmt(Math.abs(n)) + (n < 0 ? ')' : '');
+const pct = (n, dp) => isFinite(n) ? (Math.round(n * Math.pow(10, dp == null ? 1 : dp)) / Math.pow(10, dp == null ? 1 : dp)).toFixed(dp == null ? 1 : dp) + '%' : '—';
+let UID = 0;
+const fld = (name, label, val, o) => { o = o || {}; const id = 'f' + (++UID) + '_' + name; return '<div class="field"><label for="' + id + '">' + label + '</label><input id="' + id + '" name="' + name + '" type="' + (o.text ? 'text' : 'number') + '" ' + (o.step ? 'step="' + o.step + '"' : 'step="any"') + ' value="' + esc(val) + '"' + (o.min != null ? ' min="' + o.min + '"' : '') + '>' + (o.hint ? '<span class="hint">' + o.hint + '</span>' : '') + '</div>'; };
+const read = form => { const o = {}; $$('input,select', form).forEach(i => { if (!i.name) return; o[i.name] = i.type === 'checkbox' ? i.checked : (i.type === 'number' ? N(i.value) : i.value); }); return o; };
+const segH = (name, opts, cur) => '<div class="seg" data-seg="' + name + '">' + opts.map(o => '<button type="button" data-v="' + o[0] + '" aria-pressed="' + (o[0] === cur) + '">' + o[1] + '</button>').join('') + '</div>';
+function wireSeg(form, state, cb) { form.addEventListener('click', e => { const b = e.target.closest('[data-seg] button'); if (!b) return; const s = b.parentElement; state[s.dataset.seg] = b.dataset.v; $$('button', s).forEach(x => x.setAttribute('aria-pressed', String(x === b))); cb(); }); }
+
+/* ======================================================= tabs */
+const tabs = $$('#labTabs [data-t]'), panels = $$('.tool-p');
+const inited = {};
+function show(t, scroll, user) {
+  if (!document.getElementById(t)) t = 'be';
+  tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.t === t)));
+  panels.forEach(p => p.hidden = p.id !== t);
+  if (!inited[t] && INIT[t]) { inited[t] = 1; INIT[t](); }
+  const p = document.getElementById(t);
+  const lab = $('.lab'); if (lab) lab.dataset.shape = p.dataset.shapeOn || 'paper';
+  if (user && RA.BG && RA.BG.ready) RA.BG.morph(p.dataset.shapeOn || 'paper', { x: .55, y: .05, s: .7, a: .45, spin: .05, my: .5, ms: .4 });
+  const tb = tabs.find(b => b.dataset.t === t), bar = $('#labTabs'); if (tb && bar) bar.scrollTo({ left: tb.offsetLeft - bar.clientWidth / 2 + tb.clientWidth / 2, behavior: RA.RM ? 'auto' : 'smooth' });
+  if (scroll) RA.go($('#labTabs'), -96);
+  if (user || scroll) history.replaceState(null, '', '#' + t);
+  RA.reveal(p); RA.tilt(p);
+  if (window.ScrollTrigger) setTimeout(() => ScrollTrigger.refresh(), 100);
+}
+tabs.forEach(b => b.addEventListener('click', () => { show(b.dataset.t, false, true); Snd.soft(); }));
+addEventListener('hashchange', () => { const h = location.hash.slice(1); if (document.getElementById(h) && $('#labTabs [data-t="' + h + '"]')) show(h, true, true); });
+
+/* ======================================================= shared drawing helpers */
+const r2 = (n, dp) => { if (!isFinite(n)) return '—'; const d = dp == null ? 2 : dp; return (Math.round(n * Math.pow(10, d)) / Math.pow(10, d)).toLocaleString('en-US', { maximumFractionDigits: d }); };
+const sf = (n, s) => { if (!isFinite(n)) return '—'; if (n === 0) return '0'; s = s || 3; const v = Number(n.toPrecision(s)); return Math.abs(v) >= 1e5 || Math.abs(v) < 1e-3 ? v.toExponential(s - 1).replace('e+', ' × 10^').replace('e-', ' × 10^-') : v.toLocaleString('en-US', { maximumFractionDigits: 6 }); };
+const svgAxes = (W, H, P, xl, yl) => '<path class="ax" d="M' + P + ' ' + (H - P) + 'H' + (W - 8) + 'M' + P + ' ' + (H - P) + 'V8"/><text class="axl" x="' + (W - 8) + '" y="' + (H - P + 18) + '" text-anchor="end">' + xl + '</text><text class="axl" x="' + (P + 6) + '" y="16">' + yl + '</text>';
+const bk = (label, val, unit) => '<div class="bk"><span>' + label + '</span><b>' + val + (unit ? ' <small>' + unit + '</small>' : '') + '</b></div>';
+let rafs = {};
+function loop(key, fn) { cancelAnimationFrame(rafs[key]); const t0 = performance.now(); const step = t => { if (fn((t - t0) / 1000) !== false) rafs[key] = requestAnimationFrame(step); }; rafs[key] = requestAnimationFrame(step); }
+function stop(key) { cancelAnimationFrame(rafs[key]); }
+function onInput(form, cb) { form.addEventListener('input', cb); form.addEventListener('change', cb); }
+const rng = (name, label, val, min, max, step, unit) => { const id = 'r' + (++UID) + '_' + name; return '<div class="field rngf"><label for="' + id + '">' + label + ' <output data-for="' + name + '">' + val + (unit ? ' ' + unit : '') + '</output></label><input id="' + id + '" name="' + name + '" type="range" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '" data-unit="' + (unit || '') + '"></div>'; };
+function syncOut(form) { $$('input[type=range]', form).forEach(i => { const o = $('output[data-for="' + i.name + '"]', form); if (o) o.textContent = i.value + (i.dataset.unit ? ' ' + i.dataset.unit : ''); }); }
+const readR = form => { syncOut(form); const o = read(form); $$('input[type=range]', form).forEach(i => o[i.name] = parseFloat(i.value)); return o; };
+
+/* ======================================================= 1 break-even */
+const chartBE = (fc, p, vc, q) => {
+  const W = 520, H = 260, P = 46, cpu = p - vc, be = cpu > 0 ? fc / cpu : Infinity;
+  const qMax = Math.max(10, Math.ceil((isFinite(be) ? Math.max(be * 1.6, q * 1.15) : q * 1.4 || 100) / 10) * 10);
+  const yMax = Math.max(p * qMax, fc + vc * qMax, 1) * 1.05;
+  const X = v => P + v / qMax * (W - P - 12), Y = v => H - P - v / yMax * (H - P - 14);
+  let g = svgAxes(W, H, P, 'output (units)', 'Rs');
+  for (let k = 1; k <= 4; k++) g += '<text class="tk" x="' + X(qMax * k / 4) + '" y="' + (H - P + 16) + '" text-anchor="middle">' + RA.fmt(qMax * k / 4) + '</text>';
+  g += '<path class="lnf" d="M' + X(0) + ' ' + Y(fc) + 'H' + X(qMax) + '"/><path class="lnc" d="M' + X(0) + ' ' + Y(fc) + 'L' + X(qMax) + ' ' + Y(fc + vc * qMax) + '"/><path class="ln" d="M' + X(0) + ' ' + Y(0) + 'L' + X(qMax) + ' ' + Y(p * qMax) + '"/>';
+  if (isFinite(be) && be <= qMax) g += '<path class="hl" d="M' + X(be) + ' ' + Y(p * be) + 'V' + (H - P) + '"/><circle class="dot" cx="' + X(be) + '" cy="' + Y(p * be) + '" r="6"/><text class="lbl-a" x="' + (X(be) - 10) + '" y="' + (Y(p * be) - 12) + '" text-anchor="end">BE ' + RA.fmt(Math.ceil(be)) + '</text>';
+  if (q > 0 && q <= qMax) g += '<path class="qline" d="M' + X(q) + ' 14V' + (H - P) + '"/><text class="tk on" x="' + (X(q) + 5) + '" y="26">expected</text>';
+  return '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Break-even chart">' + g + '</svg><div class="legend"><span><i class="r"></i>Revenue</span><span><i class="c"></i>Total cost</span><span><i class="f"></i>Fixed cost</span></div>';
+};
+function initBE() {
+  const f = $('#beF'), o = $('#beO');
+  f.innerHTML = '<h3>Your figures (Rs)</h3>' + fld('fc', 'Fixed costs', 400000, { min: 0 }) + fld('p', 'Selling price per unit', 1000, { min: 0 }) + fld('vc', 'Variable cost per unit', 600, { min: 0 }) + fld('q', 'Expected sales (units)', 1400, { min: 0 }) +
+    '<h3>What if…</h3><div class="acts wrapb"><button class="btn btn-sm" type="button" data-w="p">Price rises 10%</button><button class="btn btn-sm" type="button" data-w="vc">Variable cost falls 10%</button><button class="btn btn-sm" type="button" data-w="fc">Fixed costs rise 20%</button><button class="btn btn-sm btn-ghost" type="button" data-w="reset">Back to my figures</button></div><p class="hint">Starts with the burger shop from his whiteboard: Rs 400,000 fixed, Rs 600 per burger, sold at Rs 1,000.</p>';
+  let base = null, note = '';
+  function calc() {
+    const x = read(f), cpu = x.p - x.vc, be = cpu > 0 ? x.fc / cpu : Infinity, beU = Math.ceil(be), mos = x.q - beU, pl = x.p * x.q - x.fc - x.vc * x.q;
+    o.innerHTML = '<div class="big-k">' + bk('Contribution / unit', rs(cpu)) + bk('Break-even', isFinite(be) ? RA.fmt(beU) : 'never', 'units') + bk('Margin of safety', isFinite(be) ? RA.fmt(mos) : '—', 'units') + bk(pl >= 0 ? 'Profit' : 'Loss', rs(pl)) + '</div>' +
+      '<div class="out"><h4>Break-even chart <small>where revenue crosses total cost</small></h4>' + chartBE(x.fc, x.p, x.vc, x.q) + '</div>' +
+      '<div class="out"><h4>Working <small>copy this layout into your answer</small></h4><div class="work">' +
+      'Contribution per unit = price − variable cost = ' + rs(x.p) + ' − ' + rs(x.vc) + ' = <b>' + rs(cpu) + '</b><br>' +
+      (cpu > 0 ? 'Break-even output = fixed costs ÷ contribution per unit = ' + rs(x.fc) + ' ÷ ' + rs(cpu) + ' = ' + r2(be, 2) + (be % 1 ? ' → round <b>up</b> to <b>' + RA.fmt(beU) + ' units</b>' : ' = <b>' + RA.fmt(beU) + ' units</b>') + '<br>' +
+        'Margin of safety = expected sales − break-even = ' + RA.fmt(x.q) + ' − ' + RA.fmt(beU) + ' = <b>' + RA.fmt(mos) + ' units</b>' + (x.q > 0 ? ' (' + pct(mos / x.q * 100) + ' of sales)' : '') + '<br>'
+        : '<span class="red">Price is not above variable cost, so each unit loses money and the business can never break even.</span><br>') +
+      'Profit = (price × units) − fixed costs − (variable cost × units) = ' + rs(x.p * x.q) + ' − ' + rs(x.fc) + ' − ' + rs(x.vc * x.q) + ' = <b>' + rs(pl) + '</b></div></div>' +
+      (note ? '<div class="out"><h4>What changed</h4><p class="wi">' + note + '</p></div>' : '');
+    return { be: beU, mos, pl };
+  }
+  onInput(f, () => { note = ''; calc(); });
+  f.addEventListener('click', e => {
+    const b = e.target.closest('[data-w]'); if (!b) return;
+    const x = read(f), set = (n, v) => { $('[name=' + n + ']', f).value = Math.round(v * 100) / 100; };
+    if (!base) base = x;
+    if (b.dataset.w === 'reset') { Object.keys(base).forEach(k => set(k, base[k])); base = null; note = ''; calc(); return; }
+    const before = calc();
+    if (b.dataset.w === 'p') set('p', x.p * 1.1); if (b.dataset.w === 'vc') set('vc', x.vc * 0.9); if (b.dataset.w === 'fc') set('fc', x.fc * 1.2);
+    note = ''; const after = calc();
+    const lbl = { p: 'A 10% price rise', vc: 'A 10% fall in variable cost', fc: 'A 20% rise in fixed costs' }[b.dataset.w];
+    note = esc(lbl) + ' moves break-even from <b>' + RA.fmt(before.be) + '</b> to <b>' + RA.fmt(after.be) + '</b> units and profit from <b>' + rs(before.pl) + '</b> to <b>' + rs(after.pl) + '</b>. ' + (b.dataset.w === 'fc' ? 'Contribution per unit is unchanged; more units are needed to cover the higher overheads.' : 'Contribution per unit rises, so fewer units are needed. In an exam, ask whether customers will still buy at the new price.');
+    calc(); Snd.soft();
+  });
+  calc();
+}
+
+/* ======================================================= 2 ratio analysis */
+function initRatio() {
+  const f = $('#raF'), o = $('#raO');
+  const PRE = { shop: { rev: 2400000, cos: 1440000, exp: 600000, ce: 1800000, ncl: 500000, ca: 520000, inv: 260000, cl: 300000 }, maker: { rev: 6000000, cos: 4200000, exp: 1350000, ce: 5200000, ncl: 3100000, ca: 900000, inv: 640000, cl: 820000 } };
+  let pre = 'shop';
+  function form() {
+    const v = PRE[pre];
+    f.innerHTML = segH('pre', [['shop', 'Example: clothing shop'], ['maker', 'Example: furniture maker']], pre) + '<h3>Income statement (Rs)</h3>' + fld('rev', 'Revenue', v.rev) + fld('cos', 'Cost of sales', v.cos) + fld('exp', 'Expenses', v.exp) +
+      '<h3>Statement of financial position (Rs)</h3>' + fld('ce', 'Capital employed', v.ce) + fld('ncl', 'Non-current liabilities', v.ncl) + fld('ca', 'Current assets', v.ca) + fld('inv', 'Inventory', v.inv) + fld('cl', 'Current liabilities', v.cl) +
+      '<p class="hint">Profit here is revenue − cost of sales − expenses, used as operating profit for ROCE.</p>';
+  }
+  function calc() {
+    const x = read(f), gp = x.rev - x.cos, np = gp - x.exp;
+    const R = [
+      ['Gross profit margin', gp / x.rev * 100, '%', 'gross profit ÷ revenue × 100 = ' + rs(gp) + ' ÷ ' + rs(x.rev) + ' × 100', v => v >= 35 ? 'Healthy mark-up on what it sells.' : v >= 20 ? 'Moderate: check supplier prices or pricing.' : 'Thin: the cost of sales is eating revenue.', 'O AS'],
+      ['Profit margin', np / x.rev * 100, '%', 'profit ÷ revenue × 100 = ' + rs(np) + ' ÷ ' + rs(x.rev) + ' × 100', v => v >= 10 ? 'Expenses are under control.' : v >= 0 ? 'Positive but slim: look at expenses.' : 'A loss: expenses exceed gross profit.', 'O AS'],
+      ['Return on capital employed', np / x.ce * 100, '%', 'operating profit ÷ capital employed × 100 = ' + rs(np) + ' ÷ ' + rs(x.ce) + ' × 100', v => v >= 15 ? 'A strong return; compare with the bank interest rate.' : v >= 8 ? 'Acceptable; compare with competitors and last year.' : 'Weak use of the money invested.', 'O A'],
+      ['Current ratio', x.ca / x.cl, ':1', 'current assets ÷ current liabilities = ' + rs(x.ca) + ' ÷ ' + rs(x.cl), v => v >= 2 ? 'Very safe, but cash may be sitting idle.' : v >= 1.5 ? 'Comfortable liquidity.' : v >= 1 ? 'Tight: can just cover short-term debts.' : 'Liquidity problem: cannot cover short-term debts.', 'O A'],
+      ['Acid test ratio', (x.ca - x.inv) / x.cl, ':1', '(current assets − inventory) ÷ current liabilities = ' + rs(x.ca - x.inv) + ' ÷ ' + rs(x.cl), v => v >= 1 ? 'Can pay short-term debts without selling inventory.' : v >= 0.7 ? 'Depends on selling inventory quickly.' : 'Risky if inventory is slow to sell.', 'O A'],
+      ['Gearing', x.ncl / x.ce * 100, '%', 'non-current liabilities ÷ capital employed × 100 = ' + rs(x.ncl) + ' ÷ ' + rs(x.ce) + ' × 100', v => v > 50 ? 'Highly geared: exposed if interest rates rise.' : v >= 25 ? 'Moderate borrowing.' : 'Low gearing: room to borrow for growth.', 'A']
+    ];
+    o.innerHTML = '<div class="big-k">' + bk('Gross profit', rs(gp)) + bk('Profit', rs(np)) + bk('Working capital', rs(x.ca - x.cl)) + '</div>' +
+      R.map(r => { const ok = isFinite(r[1]); const v = ok ? (r[2] === '%' ? pct(r[1]) : r2(r[1], 2) + ':1') : '—'; return '<div class="out rat-o"><h4>' + r[0] + ' <small>' + ({ 'O AS': 'O Level · AS', 'O A': 'O Level · A Level', A: 'A Level' }[r[5]]) + '</small></h4><div class="rat-v"><b>' + v + '</b><p>' + (ok ? esc(r[4](r[1])) : 'Enter the figures.') + '</p></div><div class="work sm">' + esc(r[3]) + '</div></div>'; }).join('') +
+      '<p class="small">Ratios mean little on their own. In an answer, compare with last year, with a competitor or with the industry, and say what the business should do.</p>';
+  }
+  form();
+  f.addEventListener('click', e => { const b = e.target.closest('[data-seg] button'); if (!b) return; pre = b.dataset.v; form(); calc(); Snd.soft(); });
+  onInput(f, calc); calc();
+}
+
+/* ======================================================= 3 cash-flow forecast */
+function initCash() {
+  const T = $('#cfT'), o = $('#cfO');
+  const M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+  const rows = [
+    ['in', 'Cash sales', [180, 160, 140, 200, 260, 300]],
+    ['in', 'Credit sales received', [60, 70, 50, 40, 80, 110]],
+    ['in', 'Loan / capital', [0, 0, 0, 0, 0, 0]],
+    ['out', 'Rent', [60, 60, 60, 60, 60, 60]],
+    ['out', 'Wages', [90, 90, 90, 110, 110, 110]],
+    ['out', 'Materials', [80, 110, 130, 90, 100, 120]],
+    ['out', 'Advertising & other', [20, 40, 30, 20, 20, 20]]
+  ];
+  let open0 = 50;
+  function build() {
+    let h = '<thead><tr><th>Rs 000</th>' + M.map(m => '<th>' + m + '</th>').join('') + '</tr></thead><tbody>';
+    h += '<tr class="sub"><th colspan="7">Cash inflows</th></tr>';
+    rows.forEach((r, i) => { if (r[0] === 'in') h += '<tr><th>' + r[1] + '</th>' + r[2].map((v, j) => '<td><input type="number" inputmode="decimal" step="any" value="' + v + '" data-r="' + i + '" data-m="' + j + '" aria-label="' + r[1] + ', ' + M[j] + '"></td>').join('') + '</tr>'; });
+    h += '<tr class="tot" data-k="tin"><th>Total inflows</th>' + M.map(() => '<td></td>').join('') + '</tr><tr class="sub"><th colspan="7">Cash outflows</th></tr>';
+    rows.forEach((r, i) => { if (r[0] === 'out') h += '<tr><th>' + r[1] + '</th>' + r[2].map((v, j) => '<td><input type="number" inputmode="decimal" step="any" value="' + v + '" data-r="' + i + '" data-m="' + j + '" aria-label="' + r[1] + ', ' + M[j] + '"></td>').join('') + '</tr>'; });
+    h += '<tr class="tot" data-k="tout"><th>Total outflows</th>' + M.map(() => '<td></td>').join('') + '</tr>';
+    h += '<tr class="net" data-k="net"><th>Net cash flow</th>' + M.map(() => '<td></td>').join('') + '</tr>';
+    h += '<tr data-k="open"><th>Opening balance</th><td><input type="number" inputmode="decimal" step="any" value="' + open0 + '" id="cfOpen" aria-label="Opening balance, January"></td>' + M.slice(1).map(() => '<td></td>').join('') + '</tr>';
+    h += '<tr class="close" data-k="close"><th>Closing balance</th>' + M.map(() => '<td></td>').join('') + '</tr></tbody>';
+    T.innerHTML = h;
+  }
+  function calc() {
+    $$('input[data-r]', T).forEach(i => { rows[+i.dataset.r][2][+i.dataset.m] = N(i.value); });
+    open0 = N($('#cfOpen').value);
+    const tin = M.map((_, j) => rows.filter(r => r[0] === 'in').reduce((a, r) => a + r[2][j], 0)), tout = M.map((_, j) => rows.filter(r => r[0] === 'out').reduce((a, r) => a + r[2][j], 0));
+    const net = M.map((_, j) => tin[j] - tout[j]), open = [], close = [];
+    M.forEach((_, j) => { open[j] = j ? close[j - 1] : open0; close[j] = open[j] + net[j]; });
+    const put = (k, arr, from) => $$('tr[data-k="' + k + '"] td', T).forEach((td, j) => { if (from && j === 0) return; const v = arr[j]; td.textContent = v < 0 ? '(' + RA.fmt(-v) + ')' : RA.fmt(v); td.classList.toggle('neg', v < 0); });
+    put('tin', tin); put('tout', tout); put('net', net); put('open', open, true); put('close', close);
+    const W = 420, H = 200, P = 30, mx = Math.max(...close.map(Math.abs), 1) * 1.15, Z = H / 2, bw = (W - P * 2) / 6 * 0.6;
+    let g = '<path class="ax" d="M' + P + ' ' + Z + 'H' + (W - 8) + '"/>';
+    close.forEach((v, j) => { const x = P + (j + .5) * (W - P * 2) / 6, hh = Math.abs(v) / mx * (H / 2 - 18); g += '<rect class="' + (v < 0 ? 'bar-n' : 'bar-p') + '" x="' + (x - bw / 2) + '" y="' + (v < 0 ? Z : Z - hh) + '" width="' + bw + '" height="' + Math.max(1, hh) + '" rx="3"/><text class="tk" x="' + x + '" y="' + (v < 0 ? Z - 6 : Z + 14) + '" text-anchor="middle">' + M[j] + '</text><text class="tk on" x="' + x + '" y="' + (v < 0 ? Z + hh + 14 : Z - hh - 6) + '" text-anchor="middle">' + RA.fmt(v) + '</text>'; });
+    const neg = close.map((v, j) => [v, j]).filter(a => a[0] < 0), low = Math.min(...close), lowM = M[close.indexOf(low)];
+    o.innerHTML = '<div class="out"><h4>Closing balance by month <small>Rs 000</small></h4><svg class="chart" viewBox="0 0 ' + W + ' ' + H + '">' + g + '</svg></div>' +
+      '<div class="out"><h4>What it says</h4><p class="wi">' + (neg.length ? 'The business runs out of cash in <b>' + M[neg[0][1]] + '</b>, and the lowest balance is <b>' + rs(low * 1000) + '</b> in ' + lowM + '. It needs an overdraft of at least <b>' + rs(-low * 1000) + '</b>, or it must delay payments, chase credit customers, or cut costs before then.' : 'The balance stays positive all six months. The lowest point is <b>' + rs(low * 1000) + '</b> in ' + lowM + '; that is the month to watch.') + '</p></div>' +
+      '<div class="work sm">Net cash flow = total inflows − total outflows · Closing balance = opening balance + net cash flow · Next month’s opening = this month’s closing.</div>';
+  }
+  build(); T.addEventListener('input', calc); calc();
+}
+
+/* ======================================================= 4 investment appraisal */
+function initInv() {
+  const f = $('#ivF'), o = $('#ivO');
+  f.innerHTML = '<h3>The project (Rs)</h3>' + fld('cost', 'Initial cost', 500000, { min: 0 }) + fld('r', 'Discount rate (%)', 10, { min: 0 }) + '<h3>Net cash flow each year (Rs)</h3>' + [180000, 200000, 150000, 120000, 100000].map((v, k) => fld('y' + (k + 1), 'Year ' + (k + 1), v)).join('') + '<p class="hint">Leave a year at 0 if the project ends early.</p>';
+  function calc() {
+    const x = read(f), cf = [1, 2, 3, 4, 5].map(k => x['y' + k]), n = cf.reduce((a, v, k) => v !== 0 ? k + 1 : a, 0) || 1, r = x.r / 100;
+    let cum = -x.cost, pb = null, rowsH = '<thead><tr><th>Year</th><th>Net cash flow</th><th>Cumulative</th><th>DF @ ' + x.r + '%</th><th>Present value</th></tr></thead><tbody><tr><td>0</td><td>' + rs(-x.cost) + '</td><td>' + rs(cum) + '</td><td>1.000</td><td>' + rs(-x.cost) + '</td></tr>';
+    let npv = -x.cost;
+    cf.slice(0, n).forEach((v, k) => {
+      const y = k + 1, prev = cum; cum += v; if (pb == null && cum >= 0 && v > 0) pb = (y - 1) + (-prev) / v;
+      const df = Math.round(1 / Math.pow(1 + r, y) * 1000) / 1000, pv = v * df; npv += pv;
+      rowsH += '<tr><td>' + y + '</td><td>' + rs(v) + '</td><td class="' + (cum < 0 ? 'neg' : '') + '">' + rs(cum) + '</td><td>' + df.toFixed(3) + '</td><td>' + rs(Math.round(pv)) + '</td></tr>';
+    });
+    rowsH += '</tbody>';
+    const total = cf.slice(0, n).reduce((a, v) => a + v, 0), avg = (total - x.cost) / n, arr = avg / x.cost * 100;
+    const pbY = pb == null ? null : Math.floor(pb), pbM = pb == null ? null : Math.ceil((pb - pbY) * 12 - 1e-9);
+    const pbTxt = pb == null ? 'not within ' + n + ' years' : pbY + ' years ' + (pbM === 12 ? '' : pbM + ' months');
+    o.innerHTML = '<div class="big-k">' + bk('Payback', pbTxt) + bk('ARR', pct(arr)) + bk('NPV', rs(Math.round(npv))) + '</div>' +
+      '<div class="out"><h4>The table <small>discount factors to 3 d.p.</small></h4><div class="cf-scroll"><table class="cf iv">' + rowsH + '</table></div></div>' +
+      '<div class="out"><h4>Working</h4><div class="work">' +
+      (pb == null ? 'Payback: the cumulative cash flow never reaches zero.' : 'Payback: after year ' + pbY + ' the business still needs ' + rs(-(cf.slice(0, pbY).reduce((a, v) => a + v, 0) - x.cost)) + '. Year ' + (pbY + 1) + ' brings ' + rs(cf[pbY]) + ', so months = ' + rs(-(cf.slice(0, pbY).reduce((a, v) => a + v, 0) - x.cost)) + ' ÷ ' + rs(cf[pbY]) + ' × 12 = ' + r2((pb - pbY) * 12, 1) + ' → <b>' + pbTxt + '</b>') + '<br>' +
+      'ARR: total net cash ' + rs(total) + ' − cost ' + rs(x.cost) + ' = profit ' + rs(total - x.cost) + '; ÷ ' + n + ' years = ' + rs(Math.round(avg)) + ' a year; ÷ ' + rs(x.cost) + ' × 100 = <b>' + pct(arr) + '</b><br>' +
+      'NPV: sum of present values − cost = <b>' + rs(Math.round(npv)) + '</b> ' + (npv >= 0 ? '(positive: worth more than it costs at ' + x.r + '%)' : '(negative: not worth it at ' + x.r + '%)') + '</div></div>' +
+      '<p class="small">Then evaluate: how reliable are cash flows four or five years out? What do the qualitative factors say (staff, brand, the environment)? A positive NPV is a reason to invest, not a decision.</p>';
+  }
+  onInput(f, calc); calc();
+}
+
+/* ======================================================= 5 price elasticity */
+function initPED() {
+  const f = $('#peF'), o = $('#peO');
+  f.innerHTML = '<h3>Before and after</h3>' + rng('p1', 'Old price', 1000, 100, 3000, 10, 'Rs') + rng('p2', 'New price', 1100, 100, 3000, 10, 'Rs') + rng('q1', 'Old quantity sold', 2000, 100, 6000, 50, '') + rng('q2', 'New quantity sold', 1500, 0, 6000, 50, '') +
+    '<div class="acts wrapb"><button class="btn btn-sm" type="button" data-pe="lux">Luxury brand example</button><button class="btn btn-sm" type="button" data-pe="ess">Essential good example</button></div>';
+  function calc() {
+    const x = readR(f), dq = (x.q2 - x.q1) / x.q1 * 100, dp = (x.p2 - x.p1) / x.p1 * 100, ped = dp ? dq / dp : NaN, a = Math.abs(ped);
+    const r1 = x.p1 * x.q1, r2v = x.p2 * x.q2, kind = !isFinite(ped) ? 'Change the price to measure it.' : a > 1 ? 'Elastic: demand reacts more than the price changed.' : a < 1 ? 'Inelastic: demand reacts less than the price changed.' : 'Unit elastic: demand changes by the same percentage.';
+    o.innerHTML = '<div class="big-k">' + bk('PED', isFinite(ped) ? r2(ped, 2) : '—') + bk('Revenue before', rs(r1)) + bk('Revenue after', rs(r2v)) + '</div>' +
+      '<div class="out"><h4>Verdict</h4><p class="wi"><b>' + esc(kind) + '</b> ' + (isFinite(ped) ? 'Revenue ' + (r2v > r1 ? 'rose' : r2v < r1 ? 'fell' : 'stayed the same') + ' by ' + rs(Math.abs(r2v - r1)) + '. ' + (a > 1 ? 'With elastic demand, a price cut usually raises revenue and a price rise lowers it.' : a < 1 ? 'With inelastic demand, a price rise usually raises revenue.' : '') : '') + '</p></div>' +
+      '<div class="out"><h4>Working</h4><div class="work">% change in quantity = (' + RA.fmt(x.q2) + ' − ' + RA.fmt(x.q1) + ') ÷ ' + RA.fmt(x.q1) + ' × 100 = ' + r2(dq, 1) + '%<br>% change in price = (' + RA.fmt(x.p2) + ' − ' + RA.fmt(x.p1) + ') ÷ ' + RA.fmt(x.p1) + ' × 100 = ' + r2(dp, 1) + '%<br>PED = ' + r2(dq, 1) + ' ÷ ' + r2(dp, 1) + ' = <b>' + (isFinite(ped) ? r2(ped, 2) : '—') + '</b></div></div>' +
+      '<p class="small">PED is usually negative: price up, quantity down. Judge elastic or inelastic on the size, ignoring the sign. In an answer, say why: substitutes, brand loyalty, necessity, share of income.</p>';
+  }
+  onInput(f, calc);
+  f.addEventListener('click', e => { const b = e.target.closest('[data-pe]'); if (!b) return; const v = b.dataset.pe === 'lux' ? [3000, 2700, 400, 520] : [200, 240, 5000, 4800]; ['p1', 'p2', 'q1', 'q2'].forEach((k, i) => $('[name=' + k + ']', f).value = v[i]); calc(); Snd.soft(); });
+  calc();
+}
+
+/* ======================================================= 6 billboard judge */
+function initMix() {
+  const f = $('#mxF'), o = $('#mxO');
+  const Q = [['att', 'Stops you looking', 'Contrast, size, image: would you notice it at 40 km/h?'], ['msg', 'One clear message', 'Seven words or fewer, readable in three seconds.'], ['tgt', 'Fits the target market', 'The people who pass this spot are the people who buy.'], ['brd', 'Brand is obvious', 'Logo and name visible without searching.'], ['cta', 'Tells you what to do', 'A call to action: book, download, visit, call.'], ['hon', 'Claim you can trust', 'No vague “No.1” without proof; legal controls apply.']];
+  f.innerHTML = '<h3>The billboard</h3>' + fld('brand', 'Brand or product', 'Deepal S05', { text: 1 }) + fld('seg', 'Who is it for?', 'young professionals buying their first EV', { text: 1 }) + '<h3>Score it, 1 to 5</h3>' + Q.map(q => rng(q[0], q[1], 3, 1, 5, 1, '')).join('') + '<p class="hint">Scored from the roadside, the way he does it in the Judging the Billboard series.</p>';
+  function calc() {
+    const x = readR(f), sc = Q.map(q => [q, x[q[0]]]), tot = sc.reduce((a, s) => a + s[1], 0);
+    const best = sc.slice().sort((a, b) => b[1] - a[1])[0], worst = sc.slice().sort((a, b) => a[1] - b[1])[0];
+    const grade = tot >= 25 ? 'Grand Prix material' : tot >= 19 ? 'Does the job' : tot >= 13 ? 'Needs a rethink' : 'Money on a pole';
+    o.innerHTML = '<div class="big-k">' + bk('Score', tot + '<small>/30</small>') + bk('Verdict', esc(grade)) + bk('Strongest', esc(best[0][1])) + '</div>' +
+      '<div class="out"><h4>The scorecard</h4><div class="mx-bars">' + sc.map(s => '<div class="mx-b"><span>' + esc(s[0][1]) + '</span><i style="--w:' + (s[1] / 5 * 100) + '%"></i><b>' + s[1] + '</b></div>').join('') + '</div></div>' +
+      '<div class="out"><h4>Your exam paragraph <small>finish it in your own words</small></h4><div class="work para">' +
+      '<b>Point:</b> The ' + esc(x.brand || 'brand') + ' billboard is strongest on “' + esc(best[0][1].toLowerCase()) + '” (' + best[1] + '/5).<br>' +
+      '<b>Application:</b> Its target market is ' + esc(x.seg || 'its customers') + ', so …<br>' +
+      '<b>Analysis:</b> This means more of the right people notice and remember the brand, which could increase enquiries and therefore sales, because …<br>' +
+      '<b>Evaluation:</b> However, it is weakest on “' + esc(worst[0][1].toLowerCase()) + '” (' + worst[1] + '/5): ' + esc(worst[0][2]) + ' Its success depends on …</div></div>' +
+      '<p class="small">Promotion is one P of four. A great billboard cannot rescue the wrong price or the wrong place.</p>';
+  }
+  onInput(f, calc); calc();
+}
+
+/* ======================================================= 7 which formula? */
+function initWhich() {
+  const box = $('#wxBox'); let S = { r: 0, n: 0 }, cur = null;
+  function next() {
+    cur = D.TX[(Math.random() * D.TX.length) | 0];
+    const opts = [cur.a].concat(D.ACCOUNTS.filter(a => a !== cur.a).sort(() => Math.random() - .5).slice(0, 3)).sort(() => Math.random() - .5);
+    box.innerHTML = '<div class="wx"><p class="qz-q">' + esc(cur.q) + '</p><div class="qz-o">' + opts.map((o, k) => '<button type="button" data-a="' + esc(o) + '"><i>' + 'ABCD'[k] + '</i><span>' + esc(o) + '</span></button>').join('') + '</div><div id="wxWhy"></div><div class="qz-nav"><span></span><button class="btn btn-pri" type="button" id="wxNext" disabled>Next situation</button></div></div>';
+  }
+  box.addEventListener('click', e => {
+    if (e.target.closest('#wxNext')) { next(); return; }
+    const b = e.target.closest('.qz-o button'); if (!b || b.disabled) return;
+    const ok = b.dataset.a === cur.a; S.n++; if (ok) S.r++;
+    $$('.qz-o button', box).forEach(x => { x.disabled = true; if (x.dataset.a === cur.a) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+    $('#wxWhy').innerHTML = '<div class="qz-why"><b>' + (ok ? 'Right.' : 'It is ' + esc(cur.a) + '.') + '</b> ' + esc(cur.why) + '</div>';
+    $('#wxNext').disabled = false; $('#wxS').textContent = S.r; $('#wxN').textContent = S.n; ok ? Snd.coin() : Snd.err();
+  });
+  next();
+}
+
+/* ======================================================= 8 quick-check */
+function initQuiz() {
+  const box = $('#qzBox'); let S = store.get('om-quiz', { best: null, runs: 0, hist: [] });
+  let set = [], i = 0, ans = [], lv = 'all', cnt = 10;
+  const paintStats = () => { $('#qBest').textContent = S.best == null ? '—' : S.best + '%'; $('#qRuns').textContent = S.runs; };
+  function setup() {
+    box.innerHTML = '<div class="qz-setup"><div class="field"><label>Level</label><div class="seg" id="qzLv">' + [['all', 'All'], ['O', 'O Level & IGCSE'], ['AS', 'AS'], ['A', 'A Level']].map(o => '<button type="button" data-v="' + o[0] + '" aria-pressed="' + (o[0] === lv) + '">' + o[1] + '</button>').join('') + '</div></div><div class="field"><label>Questions</label><div class="seg" id="qzN">' + [[10, '10'], [20, '20'], [0, 'All']].map(o => '<button type="button" data-v="' + o[0] + '" aria-pressed="' + (o[0] === cnt) + '">' + o[1] + '</button>').join('') + '</div></div><button class="btn btn-pri" type="button" id="qzGo">Start the drill</button></div>' +
+      '<div class="empty">' + D.MCQ.length + ' questions: ' + D.MCQ.filter(q => q.lv === 'O').length + ' O Level and IGCSE, ' + D.MCQ.filter(q => q.lv === 'AS').length + ' AS and ' + D.MCQ.filter(q => q.lv === 'A').length + ' A Level. Use keys 1–4 to answer and Enter for the next question.</div>';
+    $('#qzLv').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; lv = b.dataset.v; $$('#qzLv button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
+    $('#qzN').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; cnt = +b.dataset.v; $$('#qzN button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
+    $('#qzGo').addEventListener('click', start);
+  }
+  function start() {
+    set = D.MCQ.filter(q => lv === 'all' || q.lv === lv).sort(() => Math.random() - .5); if (cnt) set = set.slice(0, cnt);
+    // shuffle options per question
+    set = set.map(q => { const idx = q.o.map((_, k) => k).sort(() => Math.random() - .5); return Object.assign({}, q, { o: idx.map(k => q.o[k]), a: idx.indexOf(q.a) }); });
+    i = 0; ans = []; q();
+  }
+  function q() {
+    const x = set[i], done = ans.length > i;
+    box.innerHTML = '<div class="qz"><div class="qz-card"><div class="qz-meta"><span>Question ' + (i + 1) + ' of ' + set.length + '</span><span>' + ({ O: 'O Level · IGCSE', AS: '9609 AS', A: '9609 A Level' }[x.lv]) + ' · ' + x.ref + '</span></div><p class="qz-q">' + esc(x.q) + '</p><div class="qz-o">' + x.o.map((o, k) => '<button type="button" data-k="' + k + '"><i>' + 'ABCD'[k] + '</i><span>' + esc(o) + '</span></button>').join('') + '</div><div id="qzWhy"></div><div class="qz-nav"><button class="btn btn-sm btn-ghost" type="button" id="qzQuit">End drill</button><button class="btn btn-pri" type="button" id="qzNext" ' + (done ? '' : 'disabled') + '>' + (i + 1 < set.length ? 'Next question' : 'See my score') + '</button></div></div>' +
+      '<div class="qz-side"><div class="out"><h4>Progress</h4><div class="qz-dots">' + set.map((_, k) => '<i class="' + (k < ans.length ? (ans[k] ? 'r' : 'w') : k === i ? 'c' : '') + '"></i>').join('') + '</div><div class="big-k" style="margin-top:14px"><div class="bk"><span>Correct</span><b>' + ans.filter(Boolean).length + '</b></div><div class="bk"><span>Answered</span><b>' + ans.length + '</b></div></div></div><p class="small">Business papers are written answers, not multiple choice. Use these to check the knowledge and the calculations, then practise writing on real past papers.</p></div></div>';
+    if (done) reveal(ans[i] === true ? x.a : -1, true);
+    $('#qzQuit').addEventListener('click', finish);
+    $('#qzNext').addEventListener('click', nextQ);
+  }
+  function reveal(k, silent) {
+    const x = set[i]; $$('.qz-o button').forEach((b, j) => { b.disabled = true; if (j === x.a) b.classList.add('right'); else if (j === k) b.classList.add('wrong'); });
+    $('#qzWhy').innerHTML = '<div class="qz-why"><b>' + (k === x.a ? 'Correct.' : 'The answer is ' + 'ABCD'[x.a] + '.') + '</b> ' + esc(x.why) + '</div>';
+    $('#qzNext').disabled = false; if (!silent) { k === x.a ? (Snd.coin(), RA.BG && RA.BG.pulse()) : Snd.err(); }
+  }
+  function nextQ() { if (i + 1 < set.length) { i++; q(); } else finish(); }
+  box.addEventListener('click', e => { const b = e.target.closest('.qz-o button'); if (!b || b.disabled) return; const k = +b.dataset.k; ans[i] = k === set[i].a; reveal(k); $$('.qz-dots i').forEach((d, j) => d.className = j < ans.length ? (ans[j] ? 'r' : 'w') : j === i ? 'c' : ''); const bk = $$('.qz-side .bk b'); if (bk.length > 1) { bk[0].textContent = ans.filter(Boolean).length; bk[1].textContent = ans.length; } });
+  addEventListener('keydown', e => { if ($('#quiz').hidden || !$('.qz-o', box)) return; if (/^[1-4]$/.test(e.key)) { const b = $$('.qz-o button')[+e.key - 1]; if (b && !b.disabled) b.click(); } else if (e.key === 'Enter' && $('#qzNext') && !$('#qzNext').disabled && document.activeElement.tagName !== 'BUTTON') nextQ(); });
+  function finish() {
+    if (!ans.length) { setup(); return; }
+    const right = ans.filter(Boolean).length, p = Math.round(right / ans.length * 100);
+    S.runs++; S.best = S.best == null ? p : Math.max(S.best, p); S.hist = (S.hist || []).concat([{ ts: Date.now(), sc: right, n: ans.length, lv }]).slice(-30); store.set('om-quiz', S); paintStats();
+    const wrong = set.slice(0, ans.length).filter((_, k) => !ans[k]);
+    box.innerHTML = '<div class="qz-res"><span class="folio">Drill complete</span><span class="big">' + right + '/' + ans.length + '</span><p class="lede" style="text-align:center">' + (p >= 80 ? 'Strong. Now write it out: time yourself on a real paper.' : p >= 50 ? 'Solid base. Go back over the explanations below, then run it again.' : 'Worth another pass. Read each explanation, then try the topics in the syllabus tracker.') + '</p><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button class="btn btn-pri" type="button" id="qzAgain">Run it again</button><a class="btn" href="past-papers.html#t-' + (lv === 'O' || lv === 'all' ? '7115' : '9609') + '-1">Time a real Paper 1</a></div></div>' +
+      (wrong.length ? '<div class="out"><h4>To review <small>' + wrong.length + '</small></h4>' + wrong.map(x => '<div style="padding:12px 0;border-bottom:1px dashed var(--rule)"><b style="font-weight:600">' + esc(x.q) + '</b><p class="small" style="margin-top:6px"><span class="green">' + esc(x.o[x.a]) + '</span> — ' + esc(x.why) + '</p></div>').join('') + '</div>' : '');
+    $('#qzAgain').addEventListener('click', setup); p >= 80 && Snd.chime();
+  }
+  paintStats(); setup();
+}
+
+/* ======================================================= 9 flashcards */
+function initFlash() {
+  const box = $('#fcBox'); const K = store.get('om-flash', { known: [] });
+  const decks = { concepts: D.CONCEPTS.map(c => [c[0], c[1], 'Theory · model']), terms: D.TERMS.map(t => [t[0], t[1], 'Key term']), ratios: D.RATIOS.map(r => [r.n, r.f + (r.sym ? '\n' + r.sym : ''), r.g + ' formula']) };
+  let deck = 'concepts', cards = [], i = 0, hide = false;
+  const key = c => deck + ':' + c[0];
+  const paintK = () => $('#fKnown').textContent = K.known.length;
+  function load() { cards = decks[deck].filter(c => !hide || !K.known.includes(key(c))); i = 0; draw(); }
+  function draw() {
+    const c = cards[i];
+    box.innerHTML = '<div class="fc"><div class="fc-set">' + '<div class="seg" id="fcD">' + [['concepts', 'Theories'], ['terms', 'Key terms'], ['ratios', 'Formulas']].map(o => '<button type="button" data-v="' + o[0] + '" aria-pressed="' + (o[0] === deck) + '">' + o[1] + '</button>').join('') + '</div><label class="sy-27"><input type="checkbox" id="fcH"' + (hide ? ' checked' : '') + '> <span>Hide cards I know</span></label><button class="btn btn-sm btn-ghost" type="button" id="fcS">Shuffle</button></div>' +
+      (c ? '<div class="fc-card" id="fcC" tabindex="0" role="button" aria-label="Flip card"><div class="fc-in"><div class="fc-f"><small>' + esc(c[2]) + '</small><b>' + esc(c[0]) + '</b><small style="color:var(--ink-3)">tap to flip</small></div><div class="fc-b"><small>' + esc(c[0]) + '</small><p>' + esc(c[1]).replace(/\n(.*)$/, '<br><span style="font-size:.85em;color:var(--ink-3)">$1</span>') + '</p></div></div></div>' +
+        '<div class="fc-nav"><button class="btn btn-sm" type="button" id="fcP">← Back</button><button class="btn btn-sm" type="button" id="fcL">Still learning</button><button class="btn btn-sm btn-pri" type="button" id="fcK">' + (K.known.includes(key(c)) ? 'Known ✓' : 'I know it') + '</button><button class="btn btn-sm" type="button" id="fcN">Next →</button></div><span class="fc-prog">' + (i + 1) + ' / ' + cards.length + ' · ' + decks[deck].filter(x => K.known.includes(key(x))).length + ' of ' + decks[deck].length + ' known in this deck</span>'
+        : '<div class="empty">Every card in this deck is marked known. Untick “hide cards I know” to go through them again.</div>') + '</div>';
+  }
+  const flip = () => { const c = $('#fcC'); if (c) { c.classList.toggle('flip'); Snd.soft(); } };
+  const go = d => { if (!cards.length) return; i = (i + d + cards.length) % cards.length; draw(); };
+  box.addEventListener('click', e => {
+    const t = e.target;
+    if (t.closest('#fcD button')) { deck = t.closest('button').dataset.v; load(); return; }
+    if (t.closest('#fcC')) return flip();
+    if (t.closest('#fcP')) return go(-1);
+    if (t.closest('#fcN')) return go(1);
+    if (t.closest('#fcS')) { cards.sort(() => Math.random() - .5); i = 0; draw(); return; }
+    if (t.closest('#fcK') || t.closest('#fcL')) { const c = cards[i], k = key(c), know = !!t.closest('#fcK'); K.known = K.known.filter(x => x !== k); if (know) { K.known.push(k); Snd.coin(); } store.set('om-flash', K); paintK(); if (hide && know) { cards.splice(i, 1); if (i >= cards.length) i = 0; draw(); } else go(1); }
+  });
+  box.addEventListener('change', e => { if (e.target.id === 'fcH') { hide = e.target.checked; load(); } });
+  addEventListener('keydown', e => { if ($('#flash').hidden || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return; if (e.key === ' ') { e.preventDefault(); flip(); } else if (e.key === 'ArrowRight') go(1); else if (e.key === 'ArrowLeft') go(-1); });
+  paintK(); load();
+}
+
+const INIT = { be: initBE, ratio: initRatio, cash: initCash, inv: initInv, ped: initPED, mix: initMix, which: initWhich, quiz: initQuiz, flash: initFlash };
+const h0 = location.hash.slice(1);
+show($('#labTabs [data-t="' + h0 + '"]') ? h0 : 'be', !!h0 && h0 !== 'be');
+});
+</script></body></html>
