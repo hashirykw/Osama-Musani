@@ -1600,7 +1600,7 @@ body{background:var(--bg)}
 .dock{background:rgb(14 12 10 / .88)!important}
 /* the stacking cards no longer animate a filter on scroll (paint-heavy) */
 [data-stack]>*{will-change:transform}
-img,video{content-visibility:auto}
+
 .cursor{will-change:transform}
 
 [data-stack]>*::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#000;opacity:var(--dim,0);pointer-events:none;z-index:5}
